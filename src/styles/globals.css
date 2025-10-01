@@ -15,4 +15,6 @@ body{
   --color-secondary: #60a657;
   --color-dim-background: #e5ecd9;
   --color-secondary-background:#E2FFB4;
+
+  --breakpoint-3xl: 1660px
 }
