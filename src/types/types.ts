@@ -13,3 +13,9 @@ export type HomeSpeaker = {
   twitterLink?: string;
   linkedInLink?: string;
 };
+
+export type HomeEvent = {
+  title: string;
+  description: string;
+  src: string;
+};
