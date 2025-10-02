@@ -1,4 +1,5 @@
 import HomeHero from "@/components/HomeHero";
+import HomeOfferings from "@/components/HomeOfferings";
 import HomeTimeVenue from "@/components/HomeTimeVenue";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <HomeHero />
       <HomeTimeVenue />
+      <HomeOfferings />
     </>
   );
 }
