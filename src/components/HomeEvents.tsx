@@ -105,7 +105,7 @@ const HomeEvents = () => {
       <div className="pt-16 flex items-center justify-center">
         <Link
           href={"/dynamic-experience"}
-          className="py-4 px-8 bg-white shadow-[0px_0px_14px_4px_rgba(0,0,0,0.25)] transition-all hover:-translate-y-1 text-secondary font-extrabold text-xl rounded-full uppercase"
+          className="py-4 px-8 bg-white shadow-[-5px_5px_12px_0px_rgba(0,0,0,0.8)] transition-all hover:-translate-y-1 text-secondary font-extrabold text-xl rounded-full uppercase"
         >
           Learn More
         </Link>

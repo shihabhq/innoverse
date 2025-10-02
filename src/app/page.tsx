@@ -1,3 +1,4 @@
+import HomeAdditionalText from "@/components/HomeAdditionalText";
 import HomeEvents from "@/components/HomeEvents";
 import HomeHero from "@/components/HomeHero";
 import HomeOfferings from "@/components/HomeOfferings";
@@ -12,6 +13,7 @@ export default function Home() {
       <HomeOfferings />
       <HomeSpeakers />
       <HomeEvents />
+      <HomeAdditionalText />
     </>
   );
 }
