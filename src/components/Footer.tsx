@@ -1,9 +1,10 @@
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <>
-      <div className="w-full bg-dark-accent px-3 sm:px-6">
+      <div className="w-full mt-20 bg-dark-accent px-3 sm:px-6">
         <div className="flex py-4 border-l-4 sm:border-l-[10px] border-l-[#F2F2E8] gap-4 lg:gap-10 items-center">
           <h2 className="font-extrabold ml-4 lg:ml-10 text-white sm:whitespace-nowrap text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-[42px] 2xl:text-[50px] 3xl:text-6xl">
             National Science & Technology Carnival{" "}
@@ -109,13 +110,13 @@ const Footer = () => {
                 be a part of this amazing event!
               </h3>
             </div>
-            <a
-              href="/follow"
-              className="flex items-center px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 lg:py-4 bg-primary text-white bg-[linear-gradient(-93deg,#92F000,#79BF0D)] font-semibold text-lg sm:text-xl lg:text-2xl rounded-full hover:-translate-y-1 transition-transform"
+            <Link
+              href="/register"
+              className="flex items-center px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 lg:py-4 text-white bg-[linear-gradient(-93deg,#92F000,#79BF0D)] font-semibold text-lg sm:text-xl lg:text-2xl rounded-full hover:-translate-y-1 transition-transform"
             >
               <span className="mr-2">Register Now</span>{" "}
               <ArrowRight size={20} className="sm:w-6 sm:h-6" />
-            </a>
+            </Link>
             <div className="w-full">
               <h2 className="font-extrabold text-2xl sm:text-3xl lg:text-4xl text-black mb-4 sm:mb-5 lg:mb-6">
                 FOLLOW US —{" "}
