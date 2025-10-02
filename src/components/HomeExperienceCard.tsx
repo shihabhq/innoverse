@@ -9,7 +9,7 @@ const HomeExperienceCard = ({
   link,
 }: HomeExperience) => {
   return (
-    <div className="p-5 sm:p-6 md:p-7 relative shadow-[-8px_8px_30px_0_rgba(0,0,0,0.2)] border-2 flex flex-col gap-3 border-secondary rounded-lg">
+    <div className="p-5 z-20 sm:p-6 md:p-7 relative shadow-[-8px_8px_30px_0_rgba(0,0,0,0.2)] border-2 flex flex-col gap-3 border-secondary rounded-lg">
       {/* Image */}
       <img className="w-16 sm:w-20 md:w-[90px]" src={imgSrc} alt={title} />
 
@@ -30,6 +30,7 @@ const HomeExperienceCard = ({
           />
         </Link>
       </div>
+     
     </div>
   );
 };

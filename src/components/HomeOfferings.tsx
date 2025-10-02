@@ -77,7 +77,7 @@ const experiences: HomeExperience[] = [
 
 const HomeOfferings = () => {
   return (
-    <section className="pt-10 sm:pt-12 pb-16 sm:pb-20 bg-secondary-background">
+    <section className="pt-10 sm:pt-12 pb-16 relative sm:pb-20 bg-secondary-background">
       <div className="container mx-auto px-4">
         {/* Heading */}
         <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-snug">
@@ -107,6 +107,19 @@ const HomeOfferings = () => {
             );
           })}
         </div>
+        <div className="pt-16 pb-6 flex items-center justify-center">
+          <Link
+            href={"/dynamic-experience"}
+            className="py-4 px-8 bg-white shadow-[0px_0px_14px_4px_rgba(0,0,0,0.25)] transition-all hover:-translate-y-1 text-secondary font-extrabold text-xl rounded-full uppercase"
+          >
+            Learn More
+          </Link>
+        </div>
+      </div>
+      <div className="rotate-[-90deg] absolute -right-50 md:-right-80 bottom-100 pointer-events-none z-10 text-secondary  md:font-bold tracking-[.2em] leading-[120%] text-7xl md:text-9xl lg:text-[120px] opacity-10">
+        <h2>
+          WHITEBOARD <br /> INITIATIVES
+        </h2>
       </div>
     </section>
   );
