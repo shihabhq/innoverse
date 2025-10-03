@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&family=Manrope:wght@200..800&display=swap");
 
 @import "tailwindcss";
 
@@ -18,4 +18,6 @@ body {
 
   --breakpoint-3xl: 1660px;
   --breakpoint-xs: 425px;
+
+  --font-concert: "Concert One", sans-serif;
 }
