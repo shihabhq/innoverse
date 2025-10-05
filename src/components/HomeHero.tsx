@@ -49,11 +49,11 @@ const HomeHero = () => {
           </div>
         </div>
       </div>
-      <div className="rotate-[-90deg] absolute -right-30 md:-right-50 bottom-100 md:bottom-60 text-secondary  md:font-light text-7xl md:text-9xl lg:text-[120px] opacity-10">
+      {/* <div className="rotate-[-90deg] absolute -right-30 md:-right-50 bottom-100 md:bottom-60 text-secondary  md:font-light text-7xl md:text-9xl lg:text-[120px] opacity-10">
         <h2>
           WHITEBOARD <br /> INITIATIVES
         </h2>
-      </div>
+      </div> */}
     </section>
   );
 };

@@ -26,7 +26,10 @@ const Navbar = () => {
           </Link>
 
           {/* Center: Whiteboard Initiatives */}
-          <Link href={'/ '} className="flex flex-col items-center justify-center">
+          <Link
+            href={"/ "}
+            className="flex flex-col items-center justify-center"
+          >
             <h2 className="text-lg font-extrabold uppercase tracking-[0.1em] leading-[1.2]">
               Whiteboard
             </h2>
@@ -91,7 +94,7 @@ const Navbar = () => {
           <div className="hover:-translate-y-1 transition-transform">
             <Link
               href={"/register"}
-              className="shadow-[-4px_6px_14.7px_rgba(0,0,0,0.25)] hover:shadow-[-4px_6px_14.7px_rgba(0,0,0,0.35)] transition-all font-extrabold text-lg lg:text-xl rounded-full bg-primary lg:px-6 lg:py-3 px-4 py-3 text-white"
+              className=" shadow-sm transition-all font-extrabold text-lg lg:text-xl rounded-full bg-primary lg:px-6 lg:py-3 px-4 py-3 text-white"
             >
               Register Now
             </Link>
