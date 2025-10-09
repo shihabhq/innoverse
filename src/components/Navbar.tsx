@@ -94,7 +94,7 @@ const Navbar = () => {
           <div className="hover:-translate-y-1 transition-transform">
             <Link
               href={"/register"}
-              className=" shadow-sm transition-all font-extrabold text-lg lg:text-xl rounded-full bg-primary lg:px-6 lg:py-3 px-4 py-3 text-white"
+              className=" shadow-sm transition-all font-extrabold text-lg lg:text-xl rounded-sm bg-primary lg:px-6 lg:py-3 px-4 py-3 text-white"
             >
               Register Now
             </Link>
