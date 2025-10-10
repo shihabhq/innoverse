@@ -29,7 +29,6 @@ export interface Participant {
   institution: string;
   address: string;
   t_shirt_size: string;
-  club_reference: string;
   guardian_contact?: string;
 }
 

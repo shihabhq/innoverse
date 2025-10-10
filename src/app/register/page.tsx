@@ -40,11 +40,9 @@ const RegistrationForm = () => {
     fullName: "",
     grade: "",
     gender: "male",
-    district: "",
     tshirtSize: "",
     contactNumber: "",
     instituteName: "",
-    clubReference: "",
     email: "",
     address: "",
     guardianContact: "",
@@ -55,18 +53,58 @@ const RegistrationForm = () => {
   const [step2Error, setStep2Error] = useState("");
   const [step3Error, setStep3Error] = useState("");
 
-  const [soloCompetitions, setSoloCompetitions] = useState<Competition[]>([
-    { name: "Research Abstract", selected: false, price: 100 },
+  const juniorSoloCompetitions = [
     { name: "Science Olympiad", selected: false, price: 100 },
-    { name: "Programming Contest", selected: false, price: 100 },
+    { name: "Competitive Programming", selected: false, price: 100 },
+    { name: "Research Article", selected: false, price: 100 },
+    { name: "3-Minute Research", selected: false, price: 100 },
+  ];
+    const juniorTeamCompetitions = [
+      { name: "Quizard Mania", selected: false, price: 200 },
+    ];
+  
+  const seniorSoloCompetitions = [
+    { name: "Science Olympiad", selected: false, price: 100 },
+    { name: "Competitive Programming", selected: false, price: 100 },
+    { name: "Research Article", selected: false, price: 100 },
+    { name: "3-Minute Research", selected: false, price: 100 },
+  ];
+  const undergradSoloCompetitions = [
+    { name: "Science Olympiad", selected: false, price: 100 },
+    { name: "Competitive Programming", selected: false, price: 100 },
+    { name: "Research Article", selected: false, price: 100 },
+    { name: "3-Minute Research", selected: false, price: 100 },
+  ];
+
+  const seniorTeamCompetitions = [
+    { name: "Quizard Mania", selected: false, price: 200 },
+    { name: "Robo Soccer", selected: false, price: 200 },
+    { name: "Project Showcasing", selected: false, price: 200 },
+  ];
+  const undergradTeamCompetitions = [
+    { name: "Quizard Mania", selected: false, price: 200 },
+    { name: "Robo Soccer", selected: false, price: 200 },
+    { name: "Project Showcasing", selected: false, price: 200 },
+  ];
+
+  const [soloCompetitions, setSoloCompetitions] = useState<Competition[]>([
+    { name: "Science Olympiad", selected: false, price: 100 },
+    { name: "Competitive Programming", selected: false, price: 100 },
+    { name: "Research Article", selected: false, price: 100 },
     { name: "3-Minute Research", selected: false, price: 100 },
   ]);
 
   const [teamCompetitions, setTeamCompetitions] = useState<Competition[]>([
-    { name: "Math Auction", selected: false, price: 200 },
-    { name: "Science Quiz", selected: false, price: 200 },
+    { name: "Quizard Mania", selected: false, price: 200 },
     { name: "Robo Soccer", selected: false, price: 200 },
     { name: "Project Showcasing", selected: false, price: 200 },
+  ]);
+  const [mixedCompetitions, setMixedCompetitions] = useState<Competition[]>([
+    {
+      name: "Math Maestros",
+      selected: false,
+      price: 100,
+    },
   ]);
 
   const [teamName, setTeamName] = useState("");
@@ -83,6 +121,7 @@ const RegistrationForm = () => {
 
   const [soloDropdownOpen, setSoloDropdownOpen] = useState(false);
   const [teamDropdownOpen, setTeamDropdownOpen] = useState(false);
+  const [mixedDropdownOpen, setMixedDropdownOpen] = useState(false);
 
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
@@ -111,7 +150,6 @@ const RegistrationForm = () => {
     const requiredFields = [
       formData.fullName,
       formData.grade,
-      formData.district,
       formData.tshirtSize,
       formData.contactNumber,
       formData.instituteName,
@@ -198,6 +236,11 @@ const RegistrationForm = () => {
     updated[index].selected = !updated[index].selected;
     setSoloCompetitions(updated);
   };
+  const toggleMixedCompetition = (index: number) => {
+    const updated = [...mixedCompetitions];
+    updated[index].selected = !updated[index].selected;
+    setMixedCompetitions(updated);
+  };
 
   const toggleTeamCompetition = (index: number) => {
     const updated = [...teamCompetitions];
@@ -249,6 +292,11 @@ const RegistrationForm = () => {
     updated[index].selected = false;
     setTeamCompetitions(updated);
   };
+  const removeMixedCompetition = (index: number) => {
+    const updated = [...mixedCompetitions];
+    updated[index].selected = false;
+    setMixedCompetitions(updated);
+  };
 
   const calculateSubtotal = () => {
     const soloTotal = soloCompetitions
@@ -257,7 +305,10 @@ const RegistrationForm = () => {
     const teamTotal = teamCompetitions
       .filter((c) => c.selected)
       .reduce((sum, c) => sum + c.price, 0);
-    return soloTotal + teamTotal;
+    const mixedTotal = mixedCompetitions
+      .filter((c) => c.selected)
+      .reduce((sum, c) => sum + c.price, 0);
+    return soloTotal + teamTotal + mixedTotal;
   };
 
   const subtotal = calculateSubtotal();
@@ -280,16 +331,17 @@ const RegistrationForm = () => {
       }
 
       const competitionCodeMap: { [key: string]: string } = {
-        "Research Abstract": "res_abs",
-        "3-Minute Research": "3m-res",
-        "Programming Contest": "programming",
+        "Math Maestros": "m_maestros",
         "Science Olympiad": "sc_olym",
+        "Competitive Programming": "programming",
+        "Research Article": "r_article",
+        "3-Minute Research": "3m-res",
       };
 
       const teamCompetitionCodeMap: { [key: string]: string } = {
-        "Math Auction": "m_auction",
+        // "Math Auction": "m_auction",
         "Robo Soccer": "robo_soccer",
-        "Science Quiz": "sc_quiz",
+        "Qwizard Mania": "q_mania",
         "Project Showcasing": "pr_show",
       };
 
@@ -303,7 +355,6 @@ const RegistrationForm = () => {
           institution: formData.instituteName,
           address: formData.address,
           t_shirt_size: formData.tshirtSize.toUpperCase(),
-          club_reference: formData.clubReference,
         },
         payment: {
           amount: totalAmount.toFixed(2),
@@ -364,7 +415,7 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row">
+    <div className="min-h-screen flex flex-col lg:flex-row font-roboto">
       {/* Left Panel - Welcome Section */}
       <div className="lg:w-[45%] bg-primary text-white p-8 lg:p-16 flex flex-col justify-start">
         <div className="max-w-xl ">
@@ -388,7 +439,9 @@ const RegistrationForm = () => {
             <EventSummaryCard
               soloCompetitions={soloCompetitions}
               teamCompetitions={teamCompetitions}
+              mixedCompetition={mixedCompetitions}
               onRemoveSolo={removeSoloCompetition}
+              onRemoveMix={removeMixedCompetition}
               onRemoveTeam={removeTeamCompetition}
             />
           )}
@@ -462,6 +515,8 @@ const RegistrationForm = () => {
                 soloCompetitions={soloCompetitions}
                 teamCompetitions={teamCompetitions}
                 soloDropdownOpen={soloDropdownOpen}
+                mixedDropdownOpen={mixedDropdownOpen}
+                mixedCompetitions={mixedCompetitions}
                 teamDropdownOpen={teamDropdownOpen}
                 teamName={teamName}
                 teamMembers={teamMembers}
@@ -472,7 +527,11 @@ const RegistrationForm = () => {
                 onToggleTeamDropdown={() =>
                   setTeamDropdownOpen(!teamDropdownOpen)
                 }
+                onToggleMixedDropdown={() =>
+                  setMixedDropdownOpen(!mixedDropdownOpen)
+                }
                 onToggleSoloCompetition={toggleSoloCompetition}
+                onToggleMixedCompetition={toggleMixedCompetition}
                 onToggleTeamCompetition={toggleTeamCompetition}
                 onTeamNameChange={setTeamName}
                 onUpdateTeamMember={updateTeamMember}
@@ -490,6 +549,7 @@ const RegistrationForm = () => {
                 paymentPhone={paymentPhone}
                 transactionId={transactionId}
                 onCouponCodeChange={setCouponCode}
+                onApplyDiscount={setDiscount}
                 onPaymentPhoneChange={setPaymentPhone}
                 onTransactionIdChange={setTransactionId}
               />

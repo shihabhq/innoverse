@@ -27,13 +27,13 @@ const CompetitionDropdown: React.FC<CompetitionDropdownProps> = ({
 }) => {
   return (
     <div
-      className={`${bgColor} rounded-lg overflow-hidden ${
+      className={`rounded-lg cursor-pointer overflow-hidden ${
         !bgColor.includes("lime") ? "" : ""
       }`}
     >
       <button
         onClick={onToggle}
-        className={`w-full px-4 py-4 flex items-center justify-between text-left ${hoverColor} transition-colors`}
+        className={`w-full px-4 py-4 flex items-center justify-between text-left transition-colors`}
       >
         <span className="text-xl font-bold ">{title}</span>
         <svg

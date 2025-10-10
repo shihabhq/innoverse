@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "../styles/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,6 +10,8 @@ export const metadata: Metadata = {
     "The Flagship Event of The Ministry of Information and Communication Technology of Bangladesh with the collaboration of Whiteboard Initiatives and a2i",
 };
 
+const ApacheFont = localFont({ src: "../fonts/AldotheApache.ttf" });
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -16,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${ApacheFont.className}`}>
         <Navbar />
         <main className="min-h-[60vh] pt-20">{children}</main>
         <Footer />
