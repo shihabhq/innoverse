@@ -25,12 +25,12 @@ const HomeSupporters = () => {
   return (
     <section className="bg-primary-background py-12 sm:py-16 px-4 relative">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-snug">
-          Our Supporters
+        <h2 className="text-center text-2xl sm:text-4xl md:text-5xl lg:text-8xl font-extrabold leading-snug">
+          Our <span className="text-primary">Supporters</span>
         </h2>
 
         {/* Subheading */}
-        <h4 className="font-medium text-center mt-4 sm:mt-6 max-w-md sm:max-w-3xl md:max-w-5xl lg:max-w-fit mx-auto text-base sm:text-lg md:text-3xl leading-relaxed">
+        <h4 className="font-medium text-center mt-4 sm:mt-6 max-w-md sm:max-w-3xl md:max-w-4xl mx-auto text-base px-4 sm:text-xl leading-relaxed">
           We’re proud to be backed by trusted{" "}
           <span className="font-extrabold uppercase text-secondary">
             sponsors, partners,

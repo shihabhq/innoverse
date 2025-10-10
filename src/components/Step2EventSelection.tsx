@@ -20,12 +20,17 @@ interface TeamMember {
 interface Step2EventSelectionProps {
   soloCompetitions: Competition[];
   teamCompetitions: Competition[];
+  mixedCompetitions: Competition[];
   soloDropdownOpen: boolean;
   teamDropdownOpen: boolean;
+  mixedDropdownOpen: boolean;
   teamName: string;
   teamMembers: TeamMember[];
+
   hasTeamCompetitionSelected: boolean;
   onToggleSoloDropdown: () => void;
+  onToggleMixedDropdown: () => void;
+  onToggleMixedCompetition: (index: number) => void;
   onToggleTeamDropdown: () => void;
   onToggleSoloCompetition: (index: number) => void;
   onToggleTeamCompetition: (index: number) => void;
@@ -46,6 +51,10 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
   teamDropdownOpen,
   teamName,
   teamMembers,
+  mixedCompetitions,
+  onToggleMixedDropdown,
+  mixedDropdownOpen,
+  onToggleMixedCompetition,
   hasTeamCompetitionSelected,
   onToggleSoloDropdown,
   onToggleTeamDropdown,
@@ -58,7 +67,7 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
 }) => {
   return (
     <div className="space-y-4">
-      <div className="p-2 bg-secondary-background rounded-md border border-gray-200 ">
+      <div className="p-2 transition-all bg-white/95 rounded-md border hover:bg-white/60 border-gray-200 cursor-pointer">
         <CompetitionDropdown
           title="Solo Competitions"
           competitions={soloCompetitions}
@@ -70,7 +79,7 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
         />
       </div>
 
-      <div className="p-2 bg-secondary-background rounded-md border border-gray-200 ">
+      <div className="p-2 transition-all bg-white/95 rounded-md border hover:bg-white/60 border-gray-200 cursor-pointer ">
         <CompetitionDropdown
           title="Team Competitions"
           competitions={teamCompetitions}
@@ -120,6 +129,17 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
             )}
           </div>
         )}
+      </div>
+      <div className="p-2 transition-all bg-white/95 rounded-md border hover:bg-white/60 border-gray-200 cursor-pointer ">
+        <CompetitionDropdown
+          title="Mixed Competitions"
+          competitions={mixedCompetitions}
+          isOpen={mixedDropdownOpen}
+          onToggle={onToggleMixedDropdown}
+          onSelect={onToggleMixedCompetition}
+          bgColor="bg-secondary-background"
+          hoverColor="hover:bg-secondary-background/80"
+        />
       </div>
     </div>
   );

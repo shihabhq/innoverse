@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const HomeSpeakerCard = (speaker: HomeSpeaker) => {
   return (
-    <div className="rounded-lg z-20 flex transition-all hover:-translate-y-1 flex-col gap-5 bg-white py-6 px-4 shadow-[0px_4px_4px_0_rgba(0,0,0,0.25)]">
+    <div className="rounded-lg z-20 flex transition-all hover:-translate-y-1 w-[300px] sm:w-[400px] flex-col gap-5 bg-white py-6 px-4 shadow-[0px_4px_4px_0_rgba(0,0,0,0.25)]">
       <div className="flex w-full items-center justify-center">
         <img
           src={speaker.image}
@@ -11,11 +11,10 @@ const HomeSpeakerCard = (speaker: HomeSpeaker) => {
           alt=""
         />
       </div>
-      <h2 className="text-center flex-1 text-black text-lg font-extrabold">
+      <h3 className="text-center flex-1 lg:whitespace-nowrap text-black text-2xl font-semibold">
         {speaker.name}
-      </h2>
-      <div className="w-[70px] h-[2px] bg-black rounded-full mx-auto"></div>
-      <p className="text-center font-medium  text-dark-accent text-sm">
+      </h3>
+      <p className="text-center font-medium  text-dark-accent text-sm sm:text-base px-4">
         {speaker.description}
       </p>
       <div className="flex items-center justify-center gap-4">

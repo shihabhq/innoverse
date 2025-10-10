@@ -7,11 +7,11 @@ interface FormData {
   fullName: string;
   grade: string;
   gender: string;
-  district: string;
+
   tshirtSize: string;
   contactNumber: string;
   instituteName: string;
-  clubReference: string;
+
   email: string;
   address: string;
   guardianContact: string;
@@ -25,17 +25,14 @@ interface Step1PersonalInfoProps {
 }
 
 const GRADE_OPTIONS = [
-  { value: "class-9", label: "Class - 9" },
-  { value: "class-10", label: "Class - 10" },
-  { value: "class-11", label: "Class - 11" },
-  { value: "class-12", label: "Class - 12" },
-];
-
-const DISTRICT_OPTIONS = [
-  { value: "dhaka", label: "Dhaka" },
-  { value: "chittagong", label: "Chittagong" },
-  { value: "sylhet", label: "Sylhet" },
-  { value: "rajshahi", label: "Rajshahi" },
+  { value: "6", label: "Class - 6" },
+  { value: "7", label: "Class - 7" },
+  { value: "8", label: "Class - 8" },
+  { value: "9", label: "Class - 9" },
+  { value: "10", label: "Class - 10" },
+  { value: "11", label: "Class - 11" },
+  { value: "12", label: "Class - 12" },
+  { value: "13", label: "University" },
 ];
 
 const TSHIRT_OPTIONS = [
@@ -95,12 +92,11 @@ const Step1PersonalInfo: React.FC<Step1PersonalInfoProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <FormSelect
-            label="Present District"
-            value={formData.district}
-            onChange={(e) => onFormDataChange("district", e.target.value)}
-            options={DISTRICT_OPTIONS}
-            placeholder="Select district"
+          <FormInput
+            name="Institute Name"
+            placeholder="Institute Name"
+            value={formData.instituteName}
+            onChange={(e) => onFormDataChange("instituteName", e.target.value)}
           />
 
           <FormSelect
@@ -136,21 +132,6 @@ const Step1PersonalInfo: React.FC<Step1PersonalInfoProps> = ({
           value={formData.address}
           onChange={(e) => onFormDataChange("address", e.target.value)}
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <FormInput
-            name="Institute Name"
-            placeholder="Institute Name"
-            value={formData.instituteName}
-            onChange={(e) => onFormDataChange("instituteName", e.target.value)}
-          />
-
-          <FormInput
-            name="Club Reference (Optional)"
-            placeholder="Club Reference"
-            value={formData.clubReference}
-            onChange={(e) => onFormDataChange("clubReference", e.target.value)}
-          />
-        </div>
       </form>
     </div>
   );

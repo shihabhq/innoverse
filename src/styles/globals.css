@@ -1,23 +1,67 @@
-@import url("https://fonts.googleapis.com/css2?family=Concert+One&family=Manrope:wght@200..800&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Anta&family=Concert+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
 body {
-  font-family: "Manrope", sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: var(--color-primary-background);
   color: var(--color-dark-accent);
+  overflow-x: hidden;
 }
 
 @theme {
   --color-primary: #79bf0d;
-  --color-primary-background: #f0ffd8;
+  --color-primary-background: #f6f6f6;
   --color-dark-accent: #323232;
   --color-secondary: #60a657;
   --color-dim-background: #e5ecd9;
   --color-secondary-background: #e2ffb4;
 
   --breakpoint-3xl: 1660px;
+  --breakpoint-mdl: 840px;
   --breakpoint-xs: 425px;
+  --breakpoint-2xs: 390px;
+
+  --font-roboto: "Roboto", sans-serif;
 
   --font-concert: "Concert One", sans-serif;
+}
+
+p,
+a,
+h3,
+li,
+input,
+label,
+select,
+option,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.scroll-row {
+  animation-play-state: running;
+}
+
+.scroll-row:hover {
+  animation-play-state: paused;
 }

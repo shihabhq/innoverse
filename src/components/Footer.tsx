@@ -1,23 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import ScrollingRow from "./ScrollingRow";
 
 const Footer = () => {
   return (
     <>
-      <div className="w-full mt-20 bg-dark-accent px-3 sm:px-6">
-        <div className="flex py-4 border-l-4 sm:border-l-[10px] border-l-[#F2F2E8] gap-4 lg:gap-10 items-center">
-          <h2 className="font-extrabold ml-4 lg:ml-10 text-white sm:whitespace-nowrap text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-[42px] 2xl:text-[50px] 3xl:text-6xl">
-            National Science & Technology Carnival{" "}
-            <span className="text-primary">2025</span>
-          </h2>
-          <div className="flex-col hidden sm:flex items-center justify-center font-extrabold uppercase text-[#60A657]/20 text-[12px] sm:text-xl md:text-2xl lg:text-3xl 2xl:text-[44px] 3xl:text-5xl">
-            <h3 className="tracking-[.13em]">Innoverse</h3>
-            <h3>Bangladesh</h3>
-          </div>
-        </div>
-      </div>
-
-      <footer className="w-[90%] mx-auto items-end text-dark-accent grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 px-3 sm:px-6 py-6 sm:py-8 lg:pt-12 lg:pb-24">
+      <ScrollingRow direction="left" />
+      <footer className="w-[90%] mx-auto items-end text-dark-accent grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 px-3 sm:px-6 lg:pb-24">
         {/* Column 1 */}
         <div>
           <div>
