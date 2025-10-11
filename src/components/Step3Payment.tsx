@@ -1,5 +1,11 @@
 "use client";
-import React, { ReactNode, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 interface Step3PaymentProps {
   subtotal: number;
@@ -7,7 +13,9 @@ interface Step3PaymentProps {
   totalAmount: number;
   couponCode: string;
   paymentPhone: string;
+  selectedMethod: "bkash" | "nagad" | null;
   transactionId: string;
+  setSelectedMethod: Dispatch<SetStateAction<"bkash" | "nagad">>;
   onCouponCodeChange: (value: string) => void;
   onPaymentPhoneChange: (value: string) => void;
   onTransactionIdChange: (value: string) => void;
@@ -24,13 +32,15 @@ const Step3Payment: React.FC<Step3PaymentProps> = ({
   onCouponCodeChange,
   onPaymentPhoneChange,
   onTransactionIdChange,
+  selectedMethod,
+  setSelectedMethod,
   onApplyDiscount,
 }) => {
   const [loading, setLoading] = useState(false);
   const [couponMessage, setCouponMessage] = useState<string | null>(null);
-  const [selectedMethod, setSelectedMethod] = useState<
-    "bkash" | "nagad" | null
-  >(null);
+  // const [selectedMethod, setSelectedMethod] = useState<
+  //   "bkash" | "nagad" | null
+  // >(null);
   const bkashNumber = "01928316192";
   const nagadNumber = "01956568575";
   const [selectedNumber, setSelectedNumber] = useState<string>(bkashNumber);
