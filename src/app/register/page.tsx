@@ -4,7 +4,7 @@ import RegistrationLeftDetailText from "@/components/RegistrationLeftDetailText"
 import RegistrationLeftHeader from "@/components/RegistrationLeftHeader";
 import StepIndicator from "@/components/StepIndicator";
 import type React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Step1PersonalInfo from "@/components/Step1PersonalInfo";
 import Step2EventSelection from "@/components/Step2EventSelection";
 import Step3Payment from "@/components/Step3Payment";
@@ -56,13 +56,13 @@ const RegistrationForm = () => {
   const juniorSoloCompetitions = [
     { name: "Science Olympiad", selected: false, price: 100 },
     { name: "Competitive Programming", selected: false, price: 100 },
-    { name: "Research Article", selected: false, price: 100 },
+
     { name: "3-Minute Research", selected: false, price: 100 },
   ];
-    const juniorTeamCompetitions = [
-      { name: "Quizard Mania", selected: false, price: 200 },
-    ];
-  
+  const juniorTeamCompetitions = [
+    { name: "Quizard Mania", selected: false, price: 200 },
+  ];
+
   const seniorSoloCompetitions = [
     { name: "Science Olympiad", selected: false, price: 100 },
     { name: "Competitive Programming", selected: false, price: 100 },
@@ -70,16 +70,12 @@ const RegistrationForm = () => {
     { name: "3-Minute Research", selected: false, price: 100 },
   ];
   const undergradSoloCompetitions = [
-    { name: "Science Olympiad", selected: false, price: 100 },
-    { name: "Competitive Programming", selected: false, price: 100 },
     { name: "Research Article", selected: false, price: 100 },
     { name: "3-Minute Research", selected: false, price: 100 },
   ];
 
   const seniorTeamCompetitions = [
     { name: "Quizard Mania", selected: false, price: 200 },
-    { name: "Robo Soccer", selected: false, price: 200 },
-    { name: "Project Showcasing", selected: false, price: 200 },
   ];
   const undergradTeamCompetitions = [
     { name: "Quizard Mania", selected: false, price: 200 },
@@ -87,25 +83,67 @@ const RegistrationForm = () => {
     { name: "Project Showcasing", selected: false, price: 200 },
   ];
 
-  const [soloCompetitions, setSoloCompetitions] = useState<Competition[]>([
+  const [soloCompetitions, setSoloCompetitions] = useState<Competition[] | []>([
     { name: "Science Olympiad", selected: false, price: 100 },
-    { name: "Competitive Programming", selected: false, price: 100 },
     { name: "Research Article", selected: false, price: 100 },
     { name: "3-Minute Research", selected: false, price: 100 },
   ]);
 
-  const [teamCompetitions, setTeamCompetitions] = useState<Competition[]>([
+  const [teamCompetitions, setTeamCompetitions] = useState<Competition[] | []>([
     { name: "Quizard Mania", selected: false, price: 200 },
     { name: "Robo Soccer", selected: false, price: 200 },
     { name: "Project Showcasing", selected: false, price: 200 },
   ]);
-  const [mixedCompetitions, setMixedCompetitions] = useState<Competition[]>([
+  const [mixedCompetitions, setMixedCompetitions] = useState<
+    Competition[] | []
+  >([
     {
       name: "Math Maestros",
       selected: false,
       price: 100,
     },
   ]);
+
+  useEffect(() => {
+    if (["6", "7", "8", "9", "10"].includes(formData.grade)) {
+      if (
+        formData.grade === "8" ||
+        formData.grade === "9" ||
+        formData.grade === "10"
+      ) {
+        setSoloCompetitions([
+          ...juniorSoloCompetitions,
+          { name: "Research Article", selected: false, price: 100 },
+        ]);
+      } else {
+        setSoloCompetitions(juniorSoloCompetitions);
+      }
+      setTeamCompetitions(juniorTeamCompetitions);
+      setMixedCompetitions([
+        {
+          name: "Math Maestros",
+          selected: false,
+          price: 100,
+        },
+      ]);
+    }
+    if (["11", "12"].includes(formData.grade)) {
+      setSoloCompetitions(seniorSoloCompetitions);
+      setTeamCompetitions(seniorTeamCompetitions);
+      setMixedCompetitions([
+        {
+          name: "Math Maestros",
+          selected: false,
+          price: 100,
+        },
+      ]);
+    }
+    if (formData.grade === "13") {
+      setSoloCompetitions(undergradSoloCompetitions);
+      setTeamCompetitions(undergradTeamCompetitions);
+      setMixedCompetitions([]);
+    }
+  }, [formData.grade]);
 
   const [teamName, setTeamName] = useState("");
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([
@@ -126,6 +164,9 @@ const RegistrationForm = () => {
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [paymentPhone, setPaymentPhone] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState<"bkash" | "nagad">(
+    "bkash"
+  );
   const [transactionId, setTransactionId] = useState("");
 
   const handleFormDataChange = (
@@ -331,7 +372,6 @@ const RegistrationForm = () => {
       }
 
       const competitionCodeMap: { [key: string]: string } = {
-        "Math Maestros": "m_maestros",
         "Science Olympiad": "sc_olym",
         "Competitive Programming": "programming",
         "Research Article": "r_article",
@@ -343,6 +383,10 @@ const RegistrationForm = () => {
         "Robo Soccer": "robo_soccer",
         "Qwizard Mania": "q_mania",
         "Project Showcasing": "pr_show",
+      };
+
+      const mixedCompetitionCodeMap: { [key: string]: string } = {
+        "Math Maestros": "m_maestros",
       };
 
       const registrationData: RegistrationData = {
@@ -358,6 +402,7 @@ const RegistrationForm = () => {
         },
         payment: {
           amount: totalAmount.toFixed(2),
+          method: paymentMethod,
           phone: paymentPhone,
           trx_id: transactionId,
         },
@@ -371,9 +416,15 @@ const RegistrationForm = () => {
       const selectedSoloCompetitions = soloCompetitions
         .filter((c) => c.selected)
         .map((c) => competitionCodeMap[c.name]);
-      if (selectedSoloCompetitions.length > 0) {
-        registrationData.competition = selectedSoloCompetitions;
-      }
+
+      const selectedMixedCompetitions = mixedCompetitions
+        .filter((c) => c.selected)
+        .map((c) => mixedCompetitionCodeMap[c.name]);
+
+      registrationData.competition = [
+        ...(selectedSoloCompetitions || []),
+        ...(selectedMixedCompetitions || []),
+      ];
 
       const selectedTeamCompetitions = teamCompetitions.filter(
         (c) => c.selected
@@ -543,6 +594,8 @@ const RegistrationForm = () => {
             {currentStep === 3 && (
               <Step3Payment
                 subtotal={subtotal}
+                selectedMethod={paymentMethod}
+                setSelectedMethod={setPaymentMethod}
                 discount={discount}
                 totalAmount={totalAmount}
                 couponCode={couponCode}

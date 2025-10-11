@@ -5,7 +5,7 @@ const HomeHeroSection = () => {
     <section className="w-full relative min-h-screen overflow-hidden">
       <div className="max-w-[1400px] @container mx-auto py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8">
         {/* Main Title */}
-        <h2 className="uppercase font-bold leading-none text-left text-[40px] xs:text-[45px] sm:text-[60px] md:text-[80px] lg:text-[120px] xl:text-[155px] 2xs:whitespace-nowrap">
+        <h2 className="uppercase font-bold leading-none text-left text-[35px] xs:text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] xl:text-[155px] 2xs:whitespace-nowrap">
           Innoverse Bangladesh
         </h2>
 
@@ -38,8 +38,8 @@ const HomeHeroSection = () => {
         </div>
 
         {/* Start Date Box */}
-        <div className="flex lg:flex-row sm:flex-col justify-start gap-2 lg:items-center z-20 mt-2 md:mt-10">
-          <div className="p-3 z-20 sm:p-4 bg-primary text-white rounded-sm w-full sm:w-[260px] ">
+        <div className="flex lg:flex-row sm:flex-col justify-start gap-4 lg:items-center z-20 mt-2 md:mt-10">
+          <div className="p-3 z-20 sm:p-4 bg-primary text-white rounded-sm w-full sm:w-[250px] ">
             <h2 className="text-5xl md:text-6xl xl:text-7xl font-extrabold">
               10+
             </h2>

@@ -130,17 +130,19 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
           </div>
         )}
       </div>
-      <div className="p-2 transition-all bg-white/95 rounded-md border hover:bg-white/60 border-gray-200 cursor-pointer ">
-        <CompetitionDropdown
-          title="Mixed Competitions"
-          competitions={mixedCompetitions}
-          isOpen={mixedDropdownOpen}
-          onToggle={onToggleMixedDropdown}
-          onSelect={onToggleMixedCompetition}
-          bgColor="bg-secondary-background"
-          hoverColor="hover:bg-secondary-background/80"
-        />
-      </div>
+      {mixedCompetitions.length > 0 && (
+        <div className="p-2 transition-all bg-white/95 rounded-md border hover:bg-white/60 border-gray-200 cursor-pointer ">
+          <CompetitionDropdown
+            title="Mixed Competitions"
+            competitions={mixedCompetitions}
+            isOpen={mixedDropdownOpen}
+            onToggle={onToggleMixedDropdown}
+            onSelect={onToggleMixedCompetition}
+            bgColor="bg-secondary-background"
+            hoverColor="hover:bg-secondary-background/80"
+          />
+        </div>
+      )}
     </div>
   );
 };

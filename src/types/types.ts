@@ -35,6 +35,7 @@ export interface Participant {
 export interface Payment {
   amount: string;
   phone: string;
+  method: "bkash" | "nagad";
   trx_id: string;
 }
 

@@ -1,6 +1,4 @@
 "use client";
-
-import HomeSupporterCard from "./HomeSupporterCard";
 import { useState } from "react";
 
 const additionalSupporters = [

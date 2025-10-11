@@ -32,7 +32,7 @@ const GRADE_OPTIONS = [
   { value: "10", label: "Class - 10" },
   { value: "11", label: "Class - 11" },
   { value: "12", label: "Class - 12" },
-  { value: "13", label: "University" },
+  { value: "13", label: "Undergraduate" },
 ];
 
 const TSHIRT_OPTIONS = [
