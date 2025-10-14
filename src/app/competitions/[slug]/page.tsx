@@ -174,8 +174,8 @@ const competitions = {
           </h2>
           <p className="text-gray-700 leading-relaxed">
             The Science Olympiad is a written competition designed to test
-            students&apos; understanding of core sciences and their ability to think
-            analytically beyond classroom knowledge. It emphasizes
+            students&apos; understanding of core sciences and their ability to
+            think analytically beyond classroom knowledge. It emphasizes
             problem-solving, reasoning, and conceptual clarity.
           </p>
         </div>
@@ -258,11 +258,11 @@ const competitions = {
           </h2>
           <p className="text-gray-700 leading-relaxed">
             The Programming Contest is one of the flagship events of Innoverse,
-            designed to showcase Bangladesh&apos;s brightest young problem solvers.
-            Structured in competitive programming (CP) style and aligned with
-            international standards, this contest aims to nurture the next
-            generation of coders, preparing them for national and international
-            platforms such as BdOI and IOI.
+            designed to showcase Bangladesh&apos;s brightest young problem
+            solvers. Structured in competitive programming (CP) style and
+            aligned with international standards, this contest aims to nurture
+            the next generation of coders, preparing them for national and
+            international platforms such as BdOI and IOI.
           </p>
         </div>
 
@@ -527,7 +527,8 @@ const competitions = {
                 </li>
                 <li>• Plagiarism will result in penalties</li>
                 <li>
-                  • Core work must be the student&apos;s own (guidance permitted)
+                  • Core work must be the student&apos;s own (guidance
+                  permitted)
                 </li>
               </ul>
             </div>
@@ -572,8 +573,8 @@ const competitions = {
             <li className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
               <span>
-                <strong>Content:</strong> Must be based on participant&apos;s own
-                research, thesis, or academic project
+                <strong>Content:</strong> Must be based on participant&apos;s
+                own research, thesis, or academic project
               </span>
             </li>
           </ul>
@@ -935,12 +936,13 @@ const competitions = {
   },
 };
 
-export default function CompetitionPage({
+export default async function CompetitionPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const competition = competitions[params.slug as keyof typeof competitions];
+  const { slug } = await params;
+  const competition = competitions[slug as keyof typeof competitions];
 
   if (!competition) {
     notFound();
