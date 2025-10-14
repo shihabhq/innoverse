@@ -1,10 +1,5 @@
+import { Competition } from "@/app/register/page";
 import type React from "react";
-
-interface Competition {
-  name: string;
-  selected: boolean;
-  price: number;
-}
 
 interface CompetitionDropdownProps {
   title: string;
@@ -14,6 +9,7 @@ interface CompetitionDropdownProps {
   onSelect: (index: number) => void;
   bgColor?: string;
   hoverColor?: string;
+  description?: string;
 }
 
 const CompetitionDropdown: React.FC<CompetitionDropdownProps> = ({
@@ -23,6 +19,7 @@ const CompetitionDropdown: React.FC<CompetitionDropdownProps> = ({
   onToggle,
   onSelect,
   bgColor = "bg-secondary-background",
+  description,
   hoverColor = "hover:bg-lime-200",
 }) => {
   return (
@@ -72,11 +69,16 @@ const CompetitionDropdown: React.FC<CompetitionDropdownProps> = ({
                   {competition.name}
                 </label>
               </div>
-              <span className="text-gray-600 font-medium">
-                {competition.price} BDT
-              </span>
+              {competition.price && (
+                <span className="text-gray-600 font-medium">
+                  {competition.price} BDT
+                </span>
+              )}
             </div>
           ))}
+          {competitions.length > 1 && description && (
+            <p className="text-gray-500 text-sm font-medium">{description}</p>
+          )}
         </div>
       )}
     </div>

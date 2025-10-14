@@ -11,6 +11,17 @@ import Step3Payment from "@/components/Step3Payment";
 import EventSummaryCard from "@/components/EventSummaryCard";
 import ErrorMessage from "@/components/ErrorMessage";
 import { RegistrationData } from "@/types/types";
+import {
+  Bot,
+  Brain,
+  Calculator,
+  Code,
+  FileText,
+  FlaskConical,
+  LucideIcon,
+  Presentation,
+  Zap,
+} from "lucide-react";
 
 const steps = [
   { label: "Personal Info", number: 1 },
@@ -18,19 +29,21 @@ const steps = [
   { label: "Payment", number: 3 },
 ];
 
-type TeamMember = {
+export type TeamMember = {
   fullName: string;
   gender: string;
   grade: string;
   tshirtSize: string;
   phoneNumber: string;
+  email: string;
   instituteName: string;
 };
 
-type Competition = {
+export type Competition = {
+  icon: LucideIcon;
   name: string;
   selected: boolean;
-  price: number;
+  price?: number;
 };
 
 const RegistrationForm = () => {
@@ -53,55 +66,50 @@ const RegistrationForm = () => {
   const [step2Error, setStep2Error] = useState("");
   const [step3Error, setStep3Error] = useState("");
 
-  const juniorSoloCompetitions = [
-    { name: "Science Olympiad", selected: false, price: 100 },
-    { name: "Competitive Programming", selected: false, price: 100 },
-
-    { name: "3-Minute Research", selected: false, price: 100 },
+  const juniorSoloCompetitions: Competition[] = [
+    { name: "Science Olympiad", selected: false, icon: FlaskConical },
+    { name: "Competitive Programming", selected: false, icon: Code },
+    {
+      icon: Calculator,
+      name: "Math Maestros",
+      selected: false,
+    },
+    // { name: "3-Minute Research", selected: false, price: 100 },
   ];
   const juniorTeamCompetitions = [
-    { name: "Quizard Mania", selected: false, price: 200 },
+    { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
   ];
 
   const seniorSoloCompetitions = [
-    { name: "Science Olympiad", selected: false, price: 100 },
-    { name: "Competitive Programming", selected: false, price: 100 },
-    { name: "Research Article", selected: false, price: 100 },
-    { name: "3-Minute Research", selected: false, price: 100 },
+    {
+      icon: Calculator,
+      name: "Math Maestros",
+      selected: false,
+    },
+    { name: "Science Olympiad", selected: false, icon: FlaskConical },
+    { name: "Competitive Programming", selected: false, icon: Code },
+    { name: "Research Article", selected: false, icon: Presentation },
+    // { name: "3-Minute Research", selected: false, price: 100 },
+  ];
+  const seniorTeamCompetitions = [
+    { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
   ];
   const undergradSoloCompetitions = [
-    { name: "Research Article", selected: false, price: 100 },
-    { name: "3-Minute Research", selected: false, price: 100 },
+    { name: "3-Minute Research", selected: false, price: 200, icon: FileText },
   ];
 
-  const seniorTeamCompetitions = [
-    { name: "Quizard Mania", selected: false, price: 200 },
-  ];
   const undergradTeamCompetitions = [
-    { name: "Quizard Mania", selected: false, price: 200 },
-    { name: "Robo Soccer", selected: false, price: 200 },
-    { name: "Project Showcasing", selected: false, price: 200 },
+    { name: "Robo Soccer", selected: false, price: 800, icon: Bot },
+    { name: "Line Forwarding Robot", selected: false, price: 800, icon: Zap },
   ];
 
   const [soloCompetitions, setSoloCompetitions] = useState<Competition[] | []>([
-    { name: "Science Olympiad", selected: false, price: 100 },
-    { name: "Research Article", selected: false, price: 100 },
-    { name: "3-Minute Research", selected: false, price: 100 },
+    { name: "Science Olympiad", selected: false, icon: FlaskConical },
+    { name: "Competitive Programming", selected: false, icon: Code },
   ]);
 
   const [teamCompetitions, setTeamCompetitions] = useState<Competition[] | []>([
-    { name: "Quizard Mania", selected: false, price: 200 },
-    { name: "Robo Soccer", selected: false, price: 200 },
-    { name: "Project Showcasing", selected: false, price: 200 },
-  ]);
-  const [mixedCompetitions, setMixedCompetitions] = useState<
-    Competition[] | []
-  >([
-    {
-      name: "Math Maestros",
-      selected: false,
-      price: 100,
-    },
+    { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
   ]);
 
   useEffect(() => {
@@ -113,35 +121,20 @@ const RegistrationForm = () => {
       ) {
         setSoloCompetitions([
           ...juniorSoloCompetitions,
-          { name: "Research Article", selected: false, price: 100 },
+          { name: "Research Article", selected: false, icon: FileText },
         ]);
       } else {
         setSoloCompetitions(juniorSoloCompetitions);
       }
       setTeamCompetitions(juniorTeamCompetitions);
-      setMixedCompetitions([
-        {
-          name: "Math Maestros",
-          selected: false,
-          price: 100,
-        },
-      ]);
     }
     if (["11", "12"].includes(formData.grade)) {
       setSoloCompetitions(seniorSoloCompetitions);
       setTeamCompetitions(seniorTeamCompetitions);
-      setMixedCompetitions([
-        {
-          name: "Math Maestros",
-          selected: false,
-          price: 100,
-        },
-      ]);
     }
     if (formData.grade === "13") {
       setSoloCompetitions(undergradSoloCompetitions);
       setTeamCompetitions(undergradTeamCompetitions);
-      setMixedCompetitions([]);
     }
   }, [formData.grade]);
 
@@ -153,14 +146,13 @@ const RegistrationForm = () => {
       grade: "",
       tshirtSize: "",
       phoneNumber: "",
+      email: "",
       instituteName: "",
     },
   ]);
 
   const [soloDropdownOpen, setSoloDropdownOpen] = useState(false);
   const [teamDropdownOpen, setTeamDropdownOpen] = useState(false);
-  const [mixedDropdownOpen, setMixedDropdownOpen] = useState(false);
-
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [paymentPhone, setPaymentPhone] = useState("");
@@ -224,18 +216,22 @@ const RegistrationForm = () => {
       }
 
       const hasValidMember = teamMembers.some((member) => {
-        return (
+        const allFieldsFilled =
           member.fullName.trim() !== "" &&
           member.grade.trim() !== "" &&
           member.tshirtSize.trim() !== "" &&
           member.phoneNumber.trim() !== "" &&
-          member.instituteName.trim() !== ""
-        );
+          member.instituteName.trim() !== "" &&
+          member.email.trim() !== "";
+
+        const validEmail = member.email.includes("@"); // ✅ new check
+
+        return allFieldsFilled && validEmail;
       });
 
       if (!hasValidMember) {
         setStep2Error(
-          "Please fill in complete details for at least one team member."
+          "Please fill in complete details (including a valid email) for at least one team member."
         );
         return false;
       }
@@ -277,11 +273,6 @@ const RegistrationForm = () => {
     updated[index].selected = !updated[index].selected;
     setSoloCompetitions(updated);
   };
-  const toggleMixedCompetition = (index: number) => {
-    const updated = [...mixedCompetitions];
-    updated[index].selected = !updated[index].selected;
-    setMixedCompetitions(updated);
-  };
 
   const toggleTeamCompetition = (index: number) => {
     const updated = [...teamCompetitions];
@@ -309,6 +300,7 @@ const RegistrationForm = () => {
           grade: "",
           tshirtSize: "",
           phoneNumber: "",
+          email: "",
           instituteName: "",
         },
       ]);
@@ -333,23 +325,22 @@ const RegistrationForm = () => {
     updated[index].selected = false;
     setTeamCompetitions(updated);
   };
-  const removeMixedCompetition = (index: number) => {
-    const updated = [...mixedCompetitions];
-    updated[index].selected = false;
-    setMixedCompetitions(updated);
-  };
 
   const calculateSubtotal = () => {
-    const soloTotal = soloCompetitions
-      .filter((c) => c.selected)
-      .reduce((sum, c) => sum + c.price, 0);
+    const soloTotalLength = soloCompetitions.filter((c) => c.selected).length;
+
+    let soloTotal = 0;
+    if (soloTotalLength === 1) {
+      soloTotal = 200;
+    } else if (soloTotalLength > 1) {
+      soloTotal = 200 + (soloTotalLength - 1) * 50;
+    }
+
     const teamTotal = teamCompetitions
       .filter((c) => c.selected)
-      .reduce((sum, c) => sum + c.price, 0);
-    const mixedTotal = mixedCompetitions
-      .filter((c) => c.selected)
-      .reduce((sum, c) => sum + c.price, 0);
-    return soloTotal + teamTotal + mixedTotal;
+      .reduce((sum, c) => sum + c.price!, 0);
+
+    return soloTotal + teamTotal;
   };
 
   const subtotal = calculateSubtotal();
@@ -359,11 +350,12 @@ const RegistrationForm = () => {
     (comp) => comp.selected
   );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (currentStep === 3) {
       setStep3Error("");
+
       if (!paymentPhone.trim() || !transactionId.trim()) {
         setStep3Error(
           "Please enter your payment phone number and transaction ID."
@@ -374,19 +366,16 @@ const RegistrationForm = () => {
       const competitionCodeMap: { [key: string]: string } = {
         "Science Olympiad": "sc_olym",
         "Competitive Programming": "programming",
+        "Math Maestros": "m_maestros",
         "Research Article": "r_article",
         "3-Minute Research": "3m-res",
       };
 
       const teamCompetitionCodeMap: { [key: string]: string } = {
-        // "Math Auction": "m_auction",
         "Robo Soccer": "robo_soccer",
+        "Line Forwarding Robot": "lfr",
         "Qwizard Mania": "q_mania",
         "Project Showcasing": "pr_show",
-      };
-
-      const mixedCompetitionCodeMap: { [key: string]: string } = {
-        "Math Maestros": "m_maestros",
       };
 
       const registrationData: RegistrationData = {
@@ -417,14 +406,7 @@ const RegistrationForm = () => {
         .filter((c) => c.selected)
         .map((c) => competitionCodeMap[c.name]);
 
-      const selectedMixedCompetitions = mixedCompetitions
-        .filter((c) => c.selected)
-        .map((c) => mixedCompetitionCodeMap[c.name]);
-
-      registrationData.competition = [
-        ...(selectedSoloCompetitions || []),
-        ...(selectedMixedCompetitions || []),
-      ];
+      registrationData.competition = [...(selectedSoloCompetitions || [])];
 
       const selectedTeamCompetitions = teamCompetitions.filter(
         (c) => c.selected
@@ -440,7 +422,8 @@ const RegistrationForm = () => {
                   member.grade.trim() &&
                   member.tshirtSize.trim() &&
                   member.phoneNumber.trim() &&
-                  member.instituteName.trim()
+                  member.instituteName.trim() &&
+                  member.email.trim()
               )
               .map((member) => ({
                 full_name: member.fullName,
@@ -448,6 +431,7 @@ const RegistrationForm = () => {
                 phone: member.phoneNumber,
                 grade: member.grade,
                 institution: member.instituteName,
+                email: member.email,
                 t_shirt_size: member.tshirtSize.toUpperCase(),
               })),
           },
@@ -461,7 +445,68 @@ const RegistrationForm = () => {
         "Registration Data:",
         JSON.stringify(registrationData, null, 2)
       );
-      alert("Registration complete! Check console for details.");
+
+      // ✅ Send to backend
+    try {
+      const response = await fetch(
+        "http://innoversebd.bdix.cloud/api/register/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(registrationData),
+        }
+      );
+
+      if (!response.ok) {
+        // --- START MODIFICATION ---
+
+        let errorData = null;
+        try {
+          // Try to parse the JSON error body from DRF
+          errorData = await response.json();
+        } catch {
+          // If it's not JSON (e.g., a simple HTML 400 page), use the status text
+          throw new Error(
+            `Server error: ${response.status} ${response.statusText}`
+          );
+        }
+
+        console.error(
+          "Backend Validation Errors:",
+          JSON.stringify(errorData, null, 2)
+        );
+
+        // Alert the user with the most important error or log it clearly
+        // Example: Check if it's an object with keys (the validation errors)
+        const firstErrorKey = Object.keys(errorData)[0];
+        const firstErrorMessage =
+          errorData[firstErrorKey]?.[0] || "Unknown validation error.";
+
+        alert(
+          `Registration failed. Validation Error on field "${firstErrorKey}": ${firstErrorMessage}`
+        );
+
+        throw new Error(
+          `Registration Failed: Status ${response.status}. See console for details.`
+        );
+
+        // --- END MODIFICATION ---
+      }
+
+      const result = await response.json();
+      console.log(" Registration Successful:", result);
+
+      alert("Registration successful!");
+      // ...
+    } catch (error) {
+      // This will now catch the detailed error thrown above
+      console.error(" Registration Failed:", error);
+      alert(
+        "Registration failed. Please check the console for validation details."
+      );
+    }
     }
   };
 
@@ -490,9 +535,7 @@ const RegistrationForm = () => {
             <EventSummaryCard
               soloCompetitions={soloCompetitions}
               teamCompetitions={teamCompetitions}
-              mixedCompetition={mixedCompetitions}
               onRemoveSolo={removeSoloCompetition}
-              onRemoveMix={removeMixedCompetition}
               onRemoveTeam={removeTeamCompetition}
             />
           )}
@@ -566,9 +609,8 @@ const RegistrationForm = () => {
                 soloCompetitions={soloCompetitions}
                 teamCompetitions={teamCompetitions}
                 soloDropdownOpen={soloDropdownOpen}
-                mixedDropdownOpen={mixedDropdownOpen}
-                mixedCompetitions={mixedCompetitions}
                 teamDropdownOpen={teamDropdownOpen}
+                grade={formData.grade}
                 teamName={teamName}
                 teamMembers={teamMembers}
                 hasTeamCompetitionSelected={hasTeamCompetitionSelected}
@@ -578,11 +620,7 @@ const RegistrationForm = () => {
                 onToggleTeamDropdown={() =>
                   setTeamDropdownOpen(!teamDropdownOpen)
                 }
-                onToggleMixedDropdown={() =>
-                  setMixedDropdownOpen(!mixedDropdownOpen)
-                }
                 onToggleSoloCompetition={toggleSoloCompetition}
-                onToggleMixedCompetition={toggleMixedCompetition}
                 onToggleTeamCompetition={toggleTeamCompetition}
                 onTeamNameChange={setTeamName}
                 onUpdateTeamMember={updateTeamMember}

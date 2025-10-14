@@ -5,7 +5,7 @@ import ScrollingRow from "./ScrollingRow";
 const Footer = () => {
   return (
     <>
-      <ScrollingRow direction="left" />
+      {/* <ScrollingRow direction="left" /> */}
       <footer className="w-[90%] mx-auto items-end text-dark-accent grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 px-3 sm:px-6 lg:pb-24">
         {/* Column 1 */}
         <div>
@@ -153,3 +153,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
