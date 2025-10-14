@@ -8,13 +8,24 @@ export default function Home() {
         <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center">
           A New Stage For <span className="text-primary">Innovation</span>
         </h1>
-        <p className="text-center text-gray-600 text-sm md:text-lg max-w-4xl mx-auto my-8">
-          National Science & Technology Carnival 2025 is the largest national
-          celebration of science, technology, and youth innovation in the
-          country. Jointly organized by a2i and WhiteBoard Initiatives, with the
-          support of the ICT Division of the Government of Bangladesh, the
-          Carnival will take place on 7–8 November 2025 at the Bangladesh
-          University of Engineering and Technology (BUET).
+        <p
+          className="max-w-5xl text-center mx-auto py-10 text-lg md:text-xl leading-relaxed mb-8 text-pretty"
+          style={{ color: "var(--color-dark-accent)" }}
+        >
+          It is with great pride that we present{" "}
+          <span
+            className="font-semibold"
+            style={{ color: "var(--color-primary)" }}
+          >
+            Innoverse Bangladesh 2025: National Science & Technology Carnival
+          </span>
+          , the nation&apos;s largest celebration of innovation, research, and
+          youth-driven excellence. Jointly organized by WhiteBoard Initiatives,
+          in collaboration with a2i and the ICT Division of the Government of
+          Bangladesh, this landmark two-day carnival will unite students,
+          researchers, entrepreneurs, start-ups, and industry leaders in a
+          vibrant festival of ideas, discovery, and future-shaping
+          conversations.
         </p>
 
         {/* Cards Grid */}

@@ -1,36 +1,19 @@
 import type React from "react";
 import CompetitionDropdown from "./CompetitionDropdown";
 import TeamMemberForm from "./TeamMemberForm";
-
-interface Competition {
-  name: string;
-  selected: boolean;
-  price: number;
-}
-
-interface TeamMember {
-  fullName: string;
-  gender: string;
-  grade: string;
-  tshirtSize: string;
-  phoneNumber: string;
-  instituteName: string;
-}
+import { Competition, TeamMember } from "@/app/register/page";
+import { useEffect, useState } from "react";
 
 interface Step2EventSelectionProps {
   soloCompetitions: Competition[];
   teamCompetitions: Competition[];
-  mixedCompetitions: Competition[];
   soloDropdownOpen: boolean;
   teamDropdownOpen: boolean;
-  mixedDropdownOpen: boolean;
   teamName: string;
   teamMembers: TeamMember[];
-
+  grade: string;
   hasTeamCompetitionSelected: boolean;
   onToggleSoloDropdown: () => void;
-  onToggleMixedDropdown: () => void;
-  onToggleMixedCompetition: (index: number) => void;
   onToggleTeamDropdown: () => void;
   onToggleSoloCompetition: (index: number) => void;
   onToggleTeamCompetition: (index: number) => void;
@@ -50,11 +33,8 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
   soloDropdownOpen,
   teamDropdownOpen,
   teamName,
+  grade,
   teamMembers,
-  mixedCompetitions,
-  onToggleMixedDropdown,
-  mixedDropdownOpen,
-  onToggleMixedCompetition,
   hasTeamCompetitionSelected,
   onToggleSoloDropdown,
   onToggleTeamDropdown,
@@ -65,6 +45,17 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
   onAddTeamMember,
   onRemoveTeamMember,
 }) => {
+  const [totalMember, setTotalMember] = useState<1 | 3>(1);
+  useEffect(() => {
+    const qwizardSelected = teamCompetitions.find(
+      (c) => c.name === "Qwizard Mania"
+    )?.selected;
+
+    const total = qwizardSelected ? 1 : 3;
+
+    setTotalMember(total);
+  }, [teamCompetitions]);
+
   return (
     <div className="space-y-4">
       <div className="p-2 transition-all bg-white/95 rounded-md border hover:bg-white/60 border-gray-200 cursor-pointer">
@@ -76,6 +67,7 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
           onSelect={onToggleSoloCompetition}
           bgColor="bg-secondary-background"
           hoverColor="hover:bg-secondary-background/80"
+          description="Note: The first selected Solo competition Costs 200 BDT and additional competition costs 50 BDT Each"
         />
       </div>
 
@@ -114,12 +106,13 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
                 member={member}
                 memberIndex={index}
                 onUpdate={onUpdateTeamMember}
+                grade={grade}
                 onRemove={onRemoveTeamMember}
                 showRemove={index > 0}
               />
             ))}
 
-            {teamMembers.length < 4 && (
+            {teamMembers.length < totalMember && (
               <button
                 onClick={onAddTeamMember}
                 className="text-lime-600 hover:text-lime-700 font-medium text-sm flex items-center gap-1"
@@ -130,19 +123,6 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
           </div>
         )}
       </div>
-      {mixedCompetitions.length > 0 && (
-        <div className="p-2 transition-all bg-white/95 rounded-md border hover:bg-white/60 border-gray-200 cursor-pointer ">
-          <CompetitionDropdown
-            title="Mixed Competitions"
-            competitions={mixedCompetitions}
-            isOpen={mixedDropdownOpen}
-            onToggle={onToggleMixedDropdown}
-            onSelect={onToggleMixedCompetition}
-            bgColor="bg-secondary-background"
-            hoverColor="hover:bg-secondary-background/80"
-          />
-        </div>
-      )}
     </div>
   );
 };
