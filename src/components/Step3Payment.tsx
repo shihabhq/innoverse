@@ -41,7 +41,7 @@ const Step3Payment: React.FC<Step3PaymentProps> = ({
   // const [selectedMethod, setSelectedMethod] = useState<
   //   "bkash" | "nagad" | null
   // >(null);
-  const bkashNumber = "01928316192";
+  const bkashNumber = "01798518280";
   const nagadNumber = "01956568575";
   const [selectedNumber, setSelectedNumber] = useState<string>(bkashNumber);
 
@@ -91,7 +91,7 @@ const Step3Payment: React.FC<Step3PaymentProps> = ({
         </h3>
 
         {/* Payment Method Selection */}
-        <div className="flex">
+        <div className="flex md:flex-row flex-col gap-2">
           <div className="flex flex-col gap-4 mb-6">
             <div className="flex gap-2">
               {/* bKash */}
@@ -173,11 +173,11 @@ const Step3Payment: React.FC<Step3PaymentProps> = ({
           </div>
           {selectedMethod === "bkash" && (
             <div className="flex justify-center items-center md:w-1/3">
-              <div className="border-2 border-gray-300 rounded-lg p-4">
+              <div className="border-2 border-gray-300 mb-6 rounded-lg p-4">
                 <img
-                  src="/images/bkash-qr.png"
+                  src="/home/payment/bkash-qr.jpg"
                   alt="bKash QR Code"
-                  className="w-40 h-40 object-contain"
+                  className="w-48 h-48 object-contain"
                 />
                 <p className="text-center text-sm text-gray-600 mt-2">
                   Scan to pay via bKash

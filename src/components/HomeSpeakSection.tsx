@@ -21,7 +21,7 @@ const HomeSpeakSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="rounded-2xl overflow-hidden shadow-lg h-64 md:h-80 lg:h-96">
               <img
-                src="/home/speaker.png"
+                src="/home/speaker.webp"
                 alt="Speaker presenting at conference"
                 className="w-full h-full object-cover"
               />
@@ -96,7 +96,7 @@ const HomeSpeakSection = () => {
             </div>
             <div className="order-1 lg:order-2 rounded-2xl overflow-hidden shadow-lg h-64 md:h-80 lg:h-96">
               <img
-                src="/home/ted-talk.png"
+                src="/home/ted-talk.webp"
                 alt="TED talk style speaker inspiring audience"
                 className="w-full h-full object-cover"
               />

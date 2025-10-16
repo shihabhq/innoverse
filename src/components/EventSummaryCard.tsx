@@ -31,8 +31,9 @@ const EventSummaryCard: React.FC<EventSummaryCardProps> = ({
             Solo Event
           </h3>
           <p className="mb-4 text-gray-500 text-sm font-medium">
-            Note:Note: The first selected Solo competition Costs 200 BDT and
-            additional competition costs 50 BDT Each
+            Note: The first selected Solo competition Costs{" "}
+            <span className="font-bold">200 BDT</span> and additional
+            competition costs <span className="text-bold">50 BDT</span> Each
           </p>
           <div className="space-y-3">
             {selectedSolo.map((competition, index) => {

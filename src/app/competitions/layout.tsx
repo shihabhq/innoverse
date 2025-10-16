@@ -43,7 +43,7 @@ export default function CompetitionsLayout({
         <div className="flex gap-8">
           {/* Sidebar - Hidden on mobile */}
           <aside className="hidden lg:block w-64 flex-shrink-0">
-            <div className="sticky top-8 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            <div className="sticky top-28 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
               <div className="bg-[#79bf0d] p-4">
                 <h2 className="text-white font-bold text-lg">Competitions</h2>
               </div>

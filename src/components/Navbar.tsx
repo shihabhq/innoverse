@@ -7,10 +7,10 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Dynamic Experience", href: "/dynamic-experience" },
+  { name: "Dynamic Experience", href: "/dynamic-experiences" },
   { name: "Competitions", href: "/competitions" },
   { name: "Shaheed Tanvin Award", href: "/award" },
-  { name: "Startups", href: "/startups" },
+  { name: "Expo", href: "/expo" },
 ];
 
 const Navbar = () => {
@@ -48,14 +48,14 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-[1400px] mx-auto">
-        <div className="flex items-center justify-between py-2 px-4 lg:px-0">
+        <div className="flex items-center justify-between px-4 lg:px-0">
           {/* MOBILE HEADER */}
-          <div className="flex w-full items-center justify-between py-2 mdl:hidden">
+          <div className="flex w-full items-center justify-between mdl:hidden">
             <Link href={"/"} className="flex items-center gap-2">
               <img src="/contents/black-logo.png" alt="Logo" className="w-14" />
               <img
                 className="w-24"
-                src="/home/innoverse-logo.png"
+                src="/home/innoverse-logo.webp"
                 alt="Innoverse"
               />
             </Link>
@@ -83,7 +83,7 @@ const Navbar = () => {
               <Link href={"/"}>
                 <img
                   className="w-30"
-                  src="/home/innoverse-logo.png"
+                  src="/home/innoverse-logo.webp"
                   alt="Innoverse"
                 />
               </Link>
@@ -92,7 +92,9 @@ const Navbar = () => {
             <div className="flex items-center gap-6 justify-end flex-1">
               <div className="flex items-center justify-center gap-3 xl:gap-6">
                 {navLinks.map((link) => {
-                  const isActive = pathname === link.href;
+                  const isActive =
+                    pathname === link.href ||
+                    pathname.startsWith(`${link.href}/`);
                   return (
                     <Link
                       key={link.name}
