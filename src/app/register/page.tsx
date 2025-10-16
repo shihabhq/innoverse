@@ -22,6 +22,9 @@ import {
   Presentation,
   Zap,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { showCustomError } from "@/components/ShowCustomError";
 
 const steps = [
   { label: "Personal Info", number: 1 },
@@ -60,6 +63,7 @@ const RegistrationForm = () => {
     address: "",
     guardianContact: "",
   });
+  const router = useRouter();
 
   const [emailError, setEmailError] = useState("");
   const [step1Error, setStep1Error] = useState("");
@@ -446,67 +450,47 @@ const RegistrationForm = () => {
         JSON.stringify(registrationData, null, 2)
       );
 
-      // ✅ Send to backend
-    try {
-      const response = await fetch(
-        "http://innoversebd.bdix.cloud/api/register/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(registrationData),
+      try {
+        const response = await fetch(
+          "http://innoversebd.bdix.cloud/api/register/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(registrationData),
+          }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          // Handle backend validation errors
+          console.error("Validation Errors:", result);
+
+          const firstErrorKey = Object.keys(result.errors || {})[0];
+          const firstErrorMessage =
+            result.errors?.[firstErrorKey]?.[0] || "Unknown validation error.";
+          console.log(`${firstErrorKey}: ${firstErrorMessage}`);
+
+          showCustomError(`${firstErrorKey}: ${firstErrorMessage}`);
+          return;
         }
-      );
 
-      if (!response.ok) {
-        // --- START MODIFICATION ---
+        toast.success(result.message || "Registration successful!");
 
-        let errorData = null;
-        try {
-          // Try to parse the JSON error body from DRF
-          errorData = await response.json();
-        } catch {
-          // If it's not JSON (e.g., a simple HTML 400 page), use the status text
-          throw new Error(
-            `Server error: ${response.status} ${response.statusText}`
-          );
-        }
+        // store a short-lived flag
+        localStorage.setItem("registration_access", "true");
+        localStorage.setItem("registration_message", result.message);
 
-        console.error(
-          "Backend Validation Errors:",
-          JSON.stringify(errorData, null, 2)
-        );
-
-        // Alert the user with the most important error or log it clearly
-        // Example: Check if it's an object with keys (the validation errors)
-        const firstErrorKey = Object.keys(errorData)[0];
-        const firstErrorMessage =
-          errorData[firstErrorKey]?.[0] || "Unknown validation error.";
-
-        alert(
-          `Registration failed. Validation Error on field "${firstErrorKey}": ${firstErrorMessage}`
-        );
-
-        throw new Error(
-          `Registration Failed: Status ${response.status}. See console for details.`
-        );
-
-        // --- END MODIFICATION ---
+        // redirect after short delay
+        setTimeout(() => {
+          router.push("/success");
+        }, 1500);
+      } catch (error) {
+        console.error("Registration Failed:", error);
+        showCustomError("Registration failed. Please try again later.");
       }
-
-      const result = await response.json();
-      console.log(" Registration Successful:", result);
-
-      alert("Registration successful!");
-      // ...
-    } catch (error) {
-      // This will now catch the detailed error thrown above
-      console.error(" Registration Failed:", error);
-      alert(
-        "Registration failed. Please check the console for validation details."
-      );
-    }
     }
   };
 

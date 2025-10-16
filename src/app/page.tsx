@@ -1,5 +1,6 @@
 import HomeAdditionalText from "@/components/HomeAdditionalText";
 import HomeEvents from "@/components/HomeEvents";
+import HomeExpoSection from "@/components/HomeExpoSection";
 import HomeHero from "@/components/HomeHero";
 import HomeHeroSection from "@/components/HomeHeroSection";
 import HomeInfoSection from "@/components/HomeInfoSection";
@@ -17,6 +18,7 @@ export default function Home() {
       {/* <HomeHero /> */}
       <HomeInfoSection />
       <WhatAwaints />
+      <HomeExpoSection />
       <HomeSpeakSection />
       {/* <HomeTimeVenue /> */}
       <HomeOfferings />

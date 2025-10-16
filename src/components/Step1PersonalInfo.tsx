@@ -7,11 +7,9 @@ interface FormData {
   fullName: string;
   grade: string;
   gender: string;
-
   tshirtSize: string;
   contactNumber: string;
   instituteName: string;
-
   email: string;
   address: string;
   guardianContact: string;

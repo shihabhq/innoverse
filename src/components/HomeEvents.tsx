@@ -112,7 +112,7 @@ const HomeEvents = () => {
       </div>
       <div className="pt-16 flex items-center justify-center">
         <Link
-          href={"/dynamic-experience"}
+          href={"/dynamic-experiences"}
           className="py-4 px-8 bg-primary text-white rounded-sm transition-all hover:-translate-y-1 font-extrabold text-xl  uppercase"
         >
           Learn More
