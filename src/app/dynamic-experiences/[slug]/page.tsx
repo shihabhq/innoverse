@@ -24,12 +24,13 @@ const iconMap = {
   "shooting-archery-arena": Target,
 };
 
-export default function ExperiencePage({
+export default async function ExperiencePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const experience = experiences.find((exp) => exp.slug === params.slug);
+  const { slug } = await params;
+  const experience = experiences.find((exp) => exp.slug === slug);
 
   if (!experience) {
     notFound();
