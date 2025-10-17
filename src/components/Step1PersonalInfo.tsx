@@ -127,8 +127,8 @@ const Step1PersonalInfo: React.FC<Step1PersonalInfoProps> = ({
           />
         </div>
         <FormInput
-          name="Address"
-          placeholder="Address"
+          name="Campus Ambassador"
+          placeholder="Campus Ambassador Name"
           value={formData.address}
           onChange={(e) => onFormDataChange("address", e.target.value)}
         />
