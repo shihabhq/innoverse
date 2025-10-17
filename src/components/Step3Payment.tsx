@@ -63,7 +63,9 @@ const Step3Payment: React.FC<Step3PaymentProps> = ({
     setCouponMessage(null);
 
     try {
-      const res = await fetch(`/api/coupon/${couponCode}/`);
+      const res = await fetch(
+        `https://innoversebd.bdix.cloud/api/coupon/${couponCode}/`
+      );
       const data = await res.json();
 
       if (data.success) {

@@ -452,7 +452,7 @@ const RegistrationForm = () => {
 
       try {
         const response = await fetch(
-          "http://innoversebd.bdix.cloud/api/register/",
+          "https://innoversebd.bdix.cloud/api/register/",
           {
             method: "POST",
             headers: {
