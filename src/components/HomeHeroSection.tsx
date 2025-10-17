@@ -5,7 +5,7 @@ const HomeHeroSection = () => {
     <section className="w-full relative min-h-screen overflow-hidden">
       <div className="max-w-[1400px] @container mx-auto py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-0">
         {/* Main Title */}
-        <h2 className="uppercase z-20 font-bold leading-none text-left text-[35px] xs:text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] 2xl:text-[155px] 2xs:whitespace-nowrap">
+        <h2 className="uppercase z-20 font-bold leading-none text-left text-[35px] xs:text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] xl:text-[155px] 2xs:whitespace-nowrap">
           Innoverse Bangladesh
         </h2>
 
@@ -15,7 +15,7 @@ const HomeHeroSection = () => {
         </h2>
 
         {/* VR Man Image - Positioned differently on mobile/tablet */}
-        <div className="hidden sm:block absolute -bottom-4 left-1/2 -translate-x-1/2 w-[90%] lg:w-[800px]">
+        <div className="hidden sm:block absolute -bottom-4 left-1/2 -translate-x-1/2 w-[90%] md:w-[60%] xl:w-[800px]">
           <img src="/home/vr-man3.webp" className="w-full" alt="VR Man" />
         </div>
 
