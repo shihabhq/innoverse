@@ -5,73 +5,59 @@ import HomeExperienceCard from "./HomeExperienceCard";
 
 const experiences: HomeExperience[] = [
   {
-    title: "Hall Of Fame",
-    description:
-      "Put on the headset and dive into new worlds — immersive adventures await you.",
-    imgSrc: "/home/experiences/hall-of-fame.svg",
-    link: "/home/somewhere",
-  },
-  {
-    title: "E-Sports Corner",
-    description:
-      "Feel the thrill of live gaming battles and test your skills in the arena.",
-    imgSrc: "/home/experiences/e-sports.svg",
-    link: "/home/somewhere-else",
-  },
-  {
-    title: "Drone Training",
-    description:
-      "Look up as drones paint the sky with dazzling formations and light displays.",
-    imgSrc: "/home/experiences/drone.svg",
-    link: "/home/somewhere-else",
-  },
-  {
-    title: "Robo Soccer",
-    description:
-      "Look up as drones paint the sky with dazzling formations and light displays.",
-    imgSrc: "/home/experiences/robo-soccer.svg",
-    link: "/home/somewhere-else",
-  },
-  {
-    title: "Simulation zone",
-    description:
-      "Science comes alive with explosive experiments and jaw-dropping chemistry tricks.",
-    imgSrc: "/home/experiences/simulation.svg",
-    link: "/home/somewhere-else",
-  },
-  {
-    title: "Tech Exibition zone",
-    description:
-      "Get up close with rockets and discover the future of space exploration.",
-    imgSrc: "/home/experiences/exibition.svg",
-    link: "/home/somewhere-else",
-  },
-  {
     title: "Maze Gallery",
-    description: "Enter the maze, solve the puzzles, and find your way to go.",
+    description:
+      "Step into a living vision of tomorrow. The Maze Gallery invites you to walk through the Bangladesh of 2077...",
     imgSrc: "/home/experiences/maze.svg",
-    link: "/home/somewhere-else",
+    link: "/dynamic-experiences/maze-gallery",
   },
   {
-    title: "Gaming Arena",
+    title: "Planetarium",
     description:
-      "Journey through the night sky and explore the wonders of the universe.",
-    imgSrc: "/home/experiences/gaming.svg",
-    link: "/home/somewhere-else",
+      "Enter the dome and look up — your journey begins among the stars...",
+    imgSrc: "/home/experiences/planet.svg",
+    link: "/dynamic-experiences/planetarium",
+  },
+  {
+    title: "VR Zone",
+    description:
+      "Put on your headset and leave the ordinary behind. From walking on Mars to diving deep beneath the ocean...",
+    imgSrc: "/home/experiences/simulation.svg",
+    link: "/dynamic-experiences/vr-section",
+  },
+  {
+    title: "Drone Flying",
+    description:
+      "Ready to fly? In the Drone Zone, you'll learn to pilot drones in a safe, netted arena...",
+    imgSrc: "/home/experiences/drone.svg",
+    link: "/dynamic-experiences/drone-flying-zone",
   },
   {
     title: "Paint Zone",
     description:
-      "Zoom into the unseen world — discover tiny lifeforms and hidden details all around us.",
+      "Unleash your creativity on a massive digital canvas. The Paint Zone turns art into interaction..",
     imgSrc: "/home/experiences/paint.svg",
-    link: "/home/somewhere-else",
+    link: "/dynamic-experiences/paint-zone",
   },
   {
-    title: "Wall Magazine",
+    title: "Live Gaming Zone",
     description:
-      "Zoom into the unseen world — discover tiny lifeforms and hidden details all around us.",
-    imgSrc: "/home/experiences/wall-magazine.svg",
-    link: "/home/somewhere-else",
+      "Journey through the night sky and explore the wonders of the universe.",
+    imgSrc: "/home/experiences/gaming.svg",
+    link: "/dynamic-experiences/live-gaming-zone",
+  },
+  {
+    title: "The Battle of Alliance",
+    description:
+      "An exclusive showdown between partnered clubs — where teamwork, logic, and competitive spirit collide.",
+    imgSrc: "/home/experiences/tic-tac.svg",
+    link: "/dynamic-experiences/battle-of-alliance",
+  },
+  {
+    title: "Boxing Simulation Zone",
+    description: "It's you versus the machine — can you beat the data?",
+    imgSrc: "/home/experiences/boxing.svg",
+    link: "/dynamic-experiences/boxing-simulation-zone",
   },
 ];
 
@@ -94,7 +80,7 @@ const HomeOfferings = () => {
         </h4>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 2xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 pt-12 sm:pt-20">
+        <div className="grid grid-cols-1 2xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-12 sm:pt-20">
           {experiences.map((exp) => {
             return (
               <HomeExperienceCard

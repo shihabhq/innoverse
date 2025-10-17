@@ -22,7 +22,7 @@ export default function ExpoPage() {
       <section className="py-16 px-4 md:py-24 bg-primary">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white text-balance">
-            Innovation Expo & InnoVentures&apos; Vault
+            Innovation Expo and InnoVentures&apos; Vault
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto text-pretty">
             Bangladesh&apos;s premier innovation hub where startups,

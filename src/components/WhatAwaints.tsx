@@ -1,4 +1,4 @@
-import { Award, BookOpen, Lightbulb, Mic, Rocket, Trophy } from "lucide-react";
+import { Award, BookOpen, Fingerprint, Lightbulb, Mic, Rocket, Trophy } from "lucide-react";
 import React from "react";
 
 const features = [
@@ -16,7 +16,7 @@ const features = [
   },
   {
     icon: Award,
-    title: "Shahid Tanvin Innovation Award",
+    title: "Shaheed Tanvin Innovation Award",
     description:
       "Celebrating young visionaries with creativity and societal commitment",
   },
@@ -31,6 +31,11 @@ const features = [
     title: "SketchTalk",
     description:
       "Powerful story-driven sessions from changemakers and innovators",
+  },
+  {
+    icon: Fingerprint,
+    title:'Dynamic Experiences',
+    description:"Feel The Innoverse Experience through amazing various Dynamic Segments"
   },
   {
     icon: Trophy,
@@ -57,41 +62,52 @@ const WhatAwaints = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <div
-                key={index}
-                className="group p-8 rounded-md shadow-sm transition-all duration-300 transform hover:-translate-y-1"
-                style={{ backgroundColor: "white" }}
-              >
+        <div className="space-y-8">
+          {/* Row 1 - show first 3 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {features.slice(0, 3).map((feature, index) => {
+              const Icon = feature.icon;
+              return (
                 <div
-                  className="mb-6 p-4 rounded-xl inline-block"
-                  style={{
-                    backgroundColor: "var(--color-secondary-background)",
-                  }}
+                  key={index}
+                  className="group p-8 rounded-md shadow-sm transition-all duration-300 transform hover:-translate-y-1 bg-white"
                 >
-                  <Icon
-                    className="w-10 h-10"
-                    style={{ color: "var(--color-primary)" }}
-                  />
+                  <div className="mb-6 p-4 rounded-xl inline-block bg-[var(--color-secondary-background)]">
+                    <Icon className="w-10 h-10 text-[var(--color-primary)]" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 text-[var(--color-dark-accent)]">
+                    {feature.title}
+                  </h3>
+                  <p className="leading-relaxed text-[var(--color-dark-accent)]">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3
-                  className="text-2xl font-bold mb-3"
-                  style={{ color: "var(--color-dark-accent)" }}
+              );
+            })}
+          </div>
+
+          {/* Row 2 - show next 4 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {features.slice(3, 7).map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={index}
+                  className="group p-8 rounded-md shadow-sm transition-all duration-300 transform hover:-translate-y-1 bg-white"
                 >
-                  {feature.title}
-                </h3>
-                <p
-                  className="leading-relaxed"
-                  style={{ color: "var(--color-dark-accent)" }}
-                >
-                  {feature.description}
-                </p>
-              </div>
-            );
-          })}
+                  <div className="mb-6 p-4 rounded-xl inline-block bg-[var(--color-secondary-background)]">
+                    <Icon className="w-10 h-10 text-[var(--color-primary)]" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 text-[var(--color-dark-accent)]">
+                    {feature.title}
+                  </h3>
+                  <p className="leading-relaxed text-[var(--color-dark-accent)]">
+                    {feature.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
