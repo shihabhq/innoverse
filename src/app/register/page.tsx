@@ -82,6 +82,8 @@ const RegistrationForm = () => {
   ];
   const juniorTeamCompetitions = [
     { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
+    { name: "Robo Soccer", selected: false, price: 800, icon: Bot },
+    { name: "Line Forwarding Robot", selected: false, price: 800, icon: Zap },
   ];
 
   const seniorSoloCompetitions = [
@@ -97,6 +99,8 @@ const RegistrationForm = () => {
   ];
   const seniorTeamCompetitions = [
     { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
+    { name: "Robo Soccer", selected: false, price: 800, icon: Bot },
+    { name: "Line Forwarding Robot", selected: false, price: 800, icon: Zap },
   ];
   const undergradSoloCompetitions = [
     { name: "3-Minute Research", selected: false, price: 200, icon: FileText },
@@ -467,7 +471,6 @@ const RegistrationForm = () => {
         if (!response.ok) {
           // Handle backend validation errors
           console.error("Validation Errors:", result);
-
           const firstErrorKey = Object.keys(result.errors || {})[0];
           const firstErrorMessage =
             result.errors?.[firstErrorKey]?.[0] || "Unknown validation error.";

@@ -18,6 +18,7 @@ export type HomeEvent = {
   title: string;
   description: string;
   src: string;
+  href:string;
 };
 
 export interface Participant {

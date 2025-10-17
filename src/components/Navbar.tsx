@@ -9,7 +9,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Dynamic Experience", href: "/dynamic-experiences" },
   { name: "Competitions", href: "/competitions" },
-  { name: "Shaheed Tanvin Award", href: "/award" },
+  { name: "Award", href: "/award" },
   { name: "Expo", href: "/expo" },
 ];
 

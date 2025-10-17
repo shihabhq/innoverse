@@ -22,7 +22,7 @@ export default function Home() {
       <HomeSpeakSection />
       {/* <HomeTimeVenue /> */}
       <HomeOfferings />
-      <HomeSpeakers />
+      {/* <HomeSpeakers /> */}
       <HomeEvents />
       {/* <HomeAdditionalText /> */}
       <HomeSupporters />
