@@ -80,6 +80,7 @@ const Step3Payment: React.FC<Step3PaymentProps> = ({
       console.error(error);
       setCouponMessage("❌ Error validating coupon. Try again.");
     } finally {
+      console.log('hello')
       setLoading(false);
     }
   };
