@@ -12,7 +12,6 @@ import {
   Gamepad2,
   Trophy,
   Zap,
-  Target,
 } from "lucide-react";
 
 const experiences = [
@@ -24,11 +23,6 @@ const experiences = [
   { name: "Live Gaming Zone", slug: "live-gaming-zone", icon: Gamepad2 },
   { name: "The Battle of Alliance", slug: "battle-of-alliance", icon: Trophy },
   { name: "Boxing Simulation Zone", slug: "boxing-simulation-zone", icon: Zap },
-  {
-    name: "Shooting and Archery Arena",
-    slug: "shooting-archery-arena",
-    icon: Target,
-  },
 ];
 
 export default function DynamicExperiencesLayout({

@@ -537,8 +537,8 @@ const competitions = {
       </>
     ),
   },
-  "3-minute-research": {
-    name: "3-Minute Research Presentation",
+  "3-minute-thesis-presentation": {
+    name: "3-Minute Thesis Presentation",
     icon: Presentation,
     content: (
       <>
@@ -547,7 +547,7 @@ const competitions = {
             Overview
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            The 3-Minute Research Contest challenges undergraduate students to
+            The 3-Minute Thesis Contest challenges undergraduate students to
             present their thesis, research project, or paper in just three
             minutes. The aim is to communicate complex ideas clearly and
             effectively to a non-specialist audience.

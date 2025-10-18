@@ -72,13 +72,5 @@ export const experiences = [
       "It's you versus the machine — can you beat the data? Test your reaction time, strength, and accuracy using high-tech boxing simulators that track every move. This is fitness meets physics — where power meets precision.",
     image: "https://ik.imagekit.io/bua2b1x6j/innoverse-images/boxing.webp?updatedAt=1760622432801",
   },
-  {
-    name: "Shooting and Archery Arena",
-    slug: "shooting-archery-arena",
-    title: "Shooting and Archery Arena",
-    tagline: "Focus. Aim. Release.",
-    description:
-      "Focus. Aim. Release. Experience precision sports like never before in this digital arena, where laser-based targets and sensor systems measure every shot's timing and angle. It's not just about hitting the mark — it's about understanding the science behind perfect accuracy.",
-    image: "https://ik.imagekit.io/bua2b1x6j/innoverse-images/archery.webp?updatedAt=1760622432756",
-  },
+  
 ]

@@ -619,7 +619,7 @@ export default function CompetitionsPage() {
         </div>
       </section>
 
-      {/* 3-Minute Research */}
+      {/* 3-Minute Thesis */}
       <section
         id="3-minute-research"
         className="bg-white rounded-lg shadow-sm p-6 border border-gray-200"
@@ -629,7 +629,7 @@ export default function CompetitionsPage() {
             <Presentation className="w-6 h-6 text-white" />
           </div>
           <h1 className="text-2xl font-bold text-[#323232]">
-            3-Minute Research Presentation
+            3-Minute Thesis Presentation
           </h1>
         </div>
 
@@ -639,7 +639,7 @@ export default function CompetitionsPage() {
               Overview
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              The 3-Minute Research Contest challenges undergraduate students to
+              The 3-Minute Thesis Contest challenges undergraduate students to
               present their thesis, research project, or paper in just three
               minutes. The aim is to communicate complex ideas clearly and
               effectively to a non-specialist audience.

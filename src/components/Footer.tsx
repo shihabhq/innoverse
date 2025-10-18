@@ -26,7 +26,7 @@ const Footer = () => {
               About Us
             </h2>
             <p className="mt-2 text-base sm:text-lg">
-              Whiteboard Initiatives is a youth-led non-profit empowering teens
+              whiteboard initiatives is a youth organization empowering teens
               through STEM, education, and social impact program.
             </p>
           </div>
@@ -58,7 +58,7 @@ const Footer = () => {
                       alt=""
                     />
                   </span>
-                  <p>+8801336-872870</p>
+                  <p>01866521132</p>
                 </div>
                 <div className="flex gap-2 items-start">
                   <span className="mt-1">
@@ -68,10 +68,7 @@ const Footer = () => {
                       alt=""
                     />
                   </span>
-                  <p>
-                    3rd Floor, Auto One AC Market, New Eskaton Road,
-                    Banglamotor, Dhaka.
-                  </p>
+                  <p>14th Floor, iDEA Co-working Space, ICT Division.</p>
                 </div>
                 <div className="flex gap-2 items-center">
                   <span>
@@ -110,29 +107,22 @@ const Footer = () => {
               <h2 className="font-extrabold text-2xl sm:text-3xl lg:text-4xl text-black mb-4 sm:mb-5 lg:mb-6">
                 FOLLOW US —{" "}
               </h2>
-              <div className="w-full flex gap-6 sm:gap-8 lg:gap-12 justify-start lg:justify-between items-center">
-                <a href="https://www.facebook.com/whiteboardinitiatives">
+              <div className="w-full flex gap-6 sm:gap-8 lg:gap-12 justify-start  items-center">
+                <a href="https://www.facebook.com/WhiteBoardInitiatives">
                   <img
                     src="/shared/fb-logo.svg"
                     className="w-8 sm:w-9 lg:w-10"
                     alt=""
                   />
                 </a>
-                <a href="https://www.twitter.com/whiteboardinitiatives">
-                  <img
-                    src="/shared/twitterx-logo.svg"
-                    className="w-8 sm:w-9 lg:w-10"
-                    alt=""
-                  />
-                </a>
-                <a href="https://www.instagram.com/whiteboardinitiatives">
+                <a href="https://www.instagram.com/whiteboard_initiatives?igsh=MXVqbmQybjBqazU1Yg==">
                   <img
                     src="/shared/insta-logo.svg"
                     className="w-8 sm:w-9 lg:w-10"
                     alt=""
                   />
                 </a>
-                <a href="https://www.linkedin.com/company/whiteboardinitiatives">
+                <a href="https://www.linkedin.com/company/whiteboard-initiatives/?viewAsMember=true">
                   <img
                     src="/shared/linkedin-logo.svg"
                     className="w-8 sm:w-9 lg:w-10"
@@ -153,4 +143,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

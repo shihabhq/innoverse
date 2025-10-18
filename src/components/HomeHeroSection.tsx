@@ -5,6 +5,7 @@ const HomeHeroSection = () => {
     <section className="w-full relative min-h-screen overflow-hidden">
       <div className="max-w-[1400px] @container mx-auto py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-0">
         {/* Main Title */}
+        <h1 className="text-xl sm:text-3xl">City Bank Presents,</h1>
         <h2 className="uppercase z-20 font-bold leading-none text-left text-[35px] xs:text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] xl:text-[155px] 2xs:whitespace-nowrap">
           Innoverse Bangladesh
         </h2>
@@ -15,7 +16,7 @@ const HomeHeroSection = () => {
         </h2>
 
         {/* VR Man Image - Positioned differently on mobile/tablet */}
-        <div className="hidden sm:block absolute -bottom-4 left-1/2 -translate-x-1/2 w-[90%] md:w-[60%] xl:w-[800px]">
+        <div className="hidden sm:block absolute -bottom-4 left-1/2 -translate-x-1/2 w-[90%] md:w-[60%] xl:w-[720px] 2xl:w-[750px]">
           <img src="/home/vr-man3.webp" className="w-full" alt="VR Man" />
         </div>
 
@@ -25,14 +26,14 @@ const HomeHeroSection = () => {
         </div>
 
         {/* Organizers Info */}
-        <div className="mt-2 md:mt-6 z-10 relative">
+        <div className="mt-2 md:mt-6 z-10 relative w-full sm:max-w-[70%] lg:max-w-[40%]">
           <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">
-            Jointly organized by{" "}
-            <span className="text-secondary">WhiteBoard Initiatives</span> &{" "}
-            <span className="text-secondary">a2i</span>
+            National Science & Technology Carnival 2025, Organized by{" "}
+            <span className="text-secondary">WhiteBoard Initiatives,</span>{" "}
+            <span className="text-secondary">in Collaboration with</span>
           </h3>
           <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold">
-            Powered By{" "}
+            in Collaboration with {" "}
             <span className="font-extrabold">ICT Division of Bangladesh.</span>
           </h3>
         </div>
