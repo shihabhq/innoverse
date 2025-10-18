@@ -55,6 +55,11 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
 
     setTotalMember(total);
   }, [teamCompetitions]);
+  const researchSelected = soloCompetitions.some(
+    (item) =>
+      (item.name === "Research Article" || item.name === "3-Minute Research") &&
+      item.selected
+  );
 
   return (
     <div className="space-y-4">
@@ -65,10 +70,16 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
           isOpen={soloDropdownOpen}
           onToggle={onToggleSoloDropdown}
           onSelect={onToggleSoloCompetition}
+          researchSelected={researchSelected}
           bgColor="bg-secondary-background"
           hoverColor="hover:bg-secondary-background/80"
           description="Note: The first selected Solo competition Costs 200 BDT and additional competition costs 50 BDT Each"
         />
+        {/* {researchSelected && (
+          <div className="mt-4 text-yellow-700 bg-yellow-100 border border-yellow-400 rounded-lg p-3 text-sm">
+            ⚠️ You need to submit your research via email to us.
+          </div>
+        )} */}
       </div>
 
       <div className="p-2 transition-all bg-white/95 rounded-md border hover:bg-white/60 border-gray-200 cursor-pointer ">

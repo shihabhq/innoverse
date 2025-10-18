@@ -6,61 +6,64 @@ import Link from "next/link";
 const soloEvents: HomeEvent[] = [
   {
     title: "Math Maestro",
-    description: "Collaborate to answer challenging science questions.",
+    description:
+      "Math Maestro is a two-round competition designed to test problem-solving, analytical thinking, and teamwork.",
     src: "/home/events/math.svg",
+    href: "/competitions/math-maestro",
   },
   {
     title: "Science Olympiad",
-    description: "Collaborate to answer challenging science questions.",
+    description:
+      "The Science Olympiad is a written competition designed to test students' understanding of core sciences and their ability to think analytically beyond classroom knowledge.",
     src: "/home/events/science.svg",
+    href: "/competitions/science-olympiad",
   },
-  {
-    title: "Qwizard Mania",
-    description: "Collaborate to answer challenging science questions.",
-    src: "/home/events/mania.svg",
-  },
+
   {
     title: "Research Article",
-    description: "Collaborate to answer challenging science questions.",
+    description:
+      "The Research Article Contest encourages school and college students to explore scientific thinking by writing research-style articles on STEM-related topics.",
     src: "/home/events/research.svg",
+    href: "/competitions/research-article-contest",
   },
   {
     title: "3-Minute Research",
-    description: "Collaborate to answer challenging science questions.",
+    description:
+      "The 3-Minute Research Contest challenges undergraduate students to present their thesis, research project, or paper in just three minutes.",
     src: "/home/events/research.svg",
+    href: "/competitions/3-minute-research",
   },
-  {
-    title: "Robo Soccer",
-    description: "Collaborate to answer challenging science questions.",
-    src: "/home/events/robo-soccer.svg",
-  },
-  {
-    title: "LFR",
-    description: "Collaborate to answer challenging science questions.",
-    src: "/home/events/lfr.svg",
-  },
+
   {
     title: "Programming  Contest",
-    description: "Collaborate to answer challenging science questions.",
+    description:
+      "The Programming Contest is one of the flagship events of Innoverse, designed to showcase Bangladesh's brightest young problem solvers...",
     src: "/home/events/coding.svg",
+    href: "/competitions/programming-contest",
   },
 ];
 
 const teamEvents: HomeEvent[] = [
   {
+    title: "Qwizard Mania",
+    description:
+      "Qwizard Mania is a dynamic, team-based contest designed to test knowledge beyond textbooks.",
+    src: "/home/events/mania.svg",
+    href: "/competitions/qwizard-mania",
+  },
+  {
     title: "Robo Soccer",
-    description: "Collaborate to answer challenging science questions.",
+    description:
+      "Soccer Bot is a competitive robotics event where teams of undergraduate students design, build, and program autonomous or manually controlled robots capable of playing soccer.",
     src: "/home/events/robo-soccer.svg",
+    href: "/competitions/robosoccer",
   },
   {
-    title: "Project Showcasing",
-    description: "Collaborate to answer challenging science questions.",
+    title: "LFR",
+    description:
+      "The Line Follower Robot (LFR) competition challenges undergraduate and polytechnic students to design, build, and program fully autonomous robots",
     src: "/home/events/project.svg",
-  },
-  {
-    title: "Science Quiz",
-    description: "Collaborate to answer challenging science questions.",
-    src: "/home/events/quiz.svg",
+    href: "/competitions/line-follower-robot",
   },
 ];
 
@@ -92,7 +95,7 @@ const HomeEvents = () => {
             <span className="text-secondary">Solo</span> Events:
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mt-8 sm:mt-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8 mt-8 sm:mt-12">
           {soloEvents.map((event) => (
             <HomeEventsCard key={event.title} {...event} />
           ))}
@@ -112,7 +115,7 @@ const HomeEvents = () => {
       </div>
       <div className="pt-16 flex items-center justify-center">
         <Link
-          href={"/dynamic-experiences"}
+          href={"/competitions"}
           className="py-4 px-8 bg-primary text-white rounded-sm transition-all hover:-translate-y-1 font-extrabold text-xl  uppercase"
         >
           Learn More
