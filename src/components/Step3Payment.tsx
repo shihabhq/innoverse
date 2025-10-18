@@ -42,7 +42,7 @@ const Step3Payment: React.FC<Step3PaymentProps> = ({
   //   "bkash" | "nagad" | null
   // >(null);
   const bkashNumber = "01798518280";
-  const nagadNumber = "01956568575";
+  const nagadNumber = "01928316192";
   const [selectedNumber, setSelectedNumber] = useState<string>(bkashNumber);
 
   useEffect(() => {
