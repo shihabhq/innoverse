@@ -57,8 +57,12 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
   }, [teamCompetitions]);
   const researchSelected = soloCompetitions.some(
     (item) =>
-      (item.name === "Research Article" || item.name === "3-Minute Research") &&
+      (item.name === "Research Article" ||
+        item.name === "3-Minute Thesis Presentation") &&
       item.selected
+  );
+  const quizSelected = teamCompetitions.some(
+    (item) => item.name === "Qwizard Mania" && item.selected
   );
 
   return (
@@ -73,6 +77,11 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
           researchSelected={researchSelected}
           bgColor="bg-secondary-background"
           hoverColor="hover:bg-secondary-background/80"
+          warning={
+            (researchSelected &&
+              "You'll receive a link to submit your research article with the confirmation email afterwards.") ||
+            ""
+          }
           description="Note: The first selected Solo competition Costs 200 BDT and additional competition costs 50 BDT Each"
         />
         {/* {researchSelected && (
@@ -91,9 +100,14 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
           onSelect={onToggleTeamCompetition}
           bgColor="bg-secondary-background"
           hoverColor="hover:bg-secondary-background/80"
+          warning={
+            (quizSelected &&
+              "Quizard Mania is only for a total of 2 members. The Member 01 will be your teammate in this Competition.") ||
+            ""
+          }
         />
         {hasTeamCompetitionSelected && (
-          <div className="bg-white rounded-lg p-6 border border-gray-200">
+          <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
               Team Info
             </h3>
@@ -123,7 +137,7 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
               />
             ))}
 
-            {teamMembers.length < totalMember && (
+            {teamMembers.length < 3 && (
               <button
                 onClick={onAddTeamMember}
                 className="text-lime-600 hover:text-lime-700 font-medium text-sm flex items-center gap-1"

@@ -25,7 +25,7 @@ const competitions = [
     slug: "research-article-contest",
     icon: FileText,
   },
-  { name: "3-Minute Research", slug: "3-minute-research", icon: Presentation },
+  { name: "3-Minute Thesis Presentation", slug: "3-minute-thesis-presentation", icon: Presentation },
   { name: "RoboSoccer", slug: "robosoccer", icon: Bot },
   { name: "Line Follower Robot (LFR)", slug: "line-follower-robot", icon: Zap },
 ];
