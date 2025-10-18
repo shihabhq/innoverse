@@ -8,7 +8,7 @@ const HomeSpeakSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl lg:text-7xl text-dark-accent font-bold mb-4 text-balance">
-            Innovate. <span className="text-primary">Inspire.</span> Impact.
+            Imagine. <span className="text-primary">Innovate.</span> Innoverse.
           </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-pretty">
             Where dialogue meets discovery — inspiring the minds shaping our
@@ -46,7 +46,7 @@ const HomeSpeakSection = () => {
                   className="text-xl md:text-2xl font-bold"
                   style={{ color: "var(--color-dark-accent)" }}
                 >
-                  Student-Focused Excellence
+                  Seminar on Cyber Security
                 </h3>
               </div>
               <p

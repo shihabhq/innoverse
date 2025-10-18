@@ -17,12 +17,13 @@ export default function Home() {
             className="font-semibold"
             style={{ color: "var(--color-primary)" }}
           >
-            Innoverse Bangladesh 2025: National Science & Technology Carnival
+            City Bank Presents Innoverse Bangladesh 2025: National Science &
+            Technology Carnival
           </span>
           , the nation&apos;s largest celebration of innovation, research, and
           youth-driven excellence. Jointly organized by WhiteBoard Initiatives,
-          in collaboration with a2i and the ICT Division of the Government of
-          Bangladesh, this landmark two-day carnival will unite students,
+          in Collaboration with a2i & Muslim Tech Fest, Supported by ICT
+          Division, this landmark two-day carnival will unite students,
           researchers, entrepreneurs, start-ups, and industry leaders in a
           vibrant festival of ideas, discovery, and future-shaping
           conversations.
@@ -78,7 +79,7 @@ export default function Home() {
                   The fun starts at
                 </p>
                 <h2 className="text-5xl font-bold mb-auto leading-tight">
-                  10am - 6pm
+                  8am - 6pm
                 </h2>
                 <div className="mt-8 flex justify-end">
                   <Clock className="w-9 h-9" strokeWidth={2} />

@@ -25,7 +25,7 @@ export default function Home() {
       {/* <HomeSpeakers /> */}
       <HomeEvents />
       {/* <HomeAdditionalText /> */}
-      <HomeSupporters />
+      {/* <HomeSupporters /> */}
     </>
   );
 }

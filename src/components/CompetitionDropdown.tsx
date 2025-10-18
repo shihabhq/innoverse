@@ -83,7 +83,8 @@ const CompetitionDropdown: React.FC<CompetitionDropdownProps> = ({
           )}
           {researchSelected && (
             <div className="mt-4 text-yellow-700 bg-yellow-100 border border-yellow-400 rounded-lg p-3 text-sm">
-              ⚠️ You will receive an email shortly to submit your research proposal to us.
+              ⚠️ You&apos;ll receive a link to submit your research article with
+              the confirmation email afterwards.
             </div>
           )}
         </div>
