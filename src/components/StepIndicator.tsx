@@ -17,9 +17,9 @@ export default function StepIndicator({
   return (
     <div className="flex items-center justify-center mb-8">
       {steps.map((step, index) => (
-        <>
+        <div className="flex items-center" key={step.label}>
           {/* Step Circle and Label */}
-          <div key={index} className="flex flex-col items-center gap-2">
+          <div key={step.label} className="flex flex-col items-center gap-2">
             <div
               className={`w-12 h-12 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
                 currentStep > step.number
@@ -52,7 +52,7 @@ export default function StepIndicator({
               }`}
             />
           )}
-        </>
+        </div>
       ))}
     </div>
   );

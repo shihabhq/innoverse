@@ -1,10 +1,5 @@
+import { Competition } from "@/app/register/page";
 import type React from "react";
-
-interface Competition {
-  name: string;
-  selected: boolean;
-  price: number;
-}
 
 interface CompetitionDropdownProps {
   title: string;
@@ -14,6 +9,7 @@ interface CompetitionDropdownProps {
   onSelect: (index: number) => void;
   bgColor?: string;
   hoverColor?: string;
+  description?: string;
 }
 
 const CompetitionDropdown: React.FC<CompetitionDropdownProps> = ({
@@ -23,17 +19,18 @@ const CompetitionDropdown: React.FC<CompetitionDropdownProps> = ({
   onToggle,
   onSelect,
   bgColor = "bg-secondary-background",
+  description,
   hoverColor = "hover:bg-lime-200",
 }) => {
   return (
     <div
-      className={`${bgColor} rounded-lg overflow-hidden ${
+      className={`rounded-lg cursor-pointer overflow-hidden ${
         !bgColor.includes("lime") ? "" : ""
       }`}
     >
       <button
         onClick={onToggle}
-        className={`w-full px-4 py-4 flex items-center justify-between text-left ${hoverColor} transition-colors`}
+        className={`w-full px-4 py-4 flex items-center justify-between text-left transition-colors`}
       >
         <span className="text-xl font-bold ">{title}</span>
         <svg
@@ -72,11 +69,16 @@ const CompetitionDropdown: React.FC<CompetitionDropdownProps> = ({
                   {competition.name}
                 </label>
               </div>
-              <span className="text-gray-600 font-medium">
-                {competition.price} BDT
-              </span>
+              {competition.price && (
+                <span className="text-gray-600 font-medium">
+                  {competition.price} BDT
+                </span>
+              )}
             </div>
           ))}
+          {competitions.length > 1 && description && (
+            <p className="text-gray-500 text-sm font-medium">{description}</p>
+          )}
         </div>
       )}
     </div>

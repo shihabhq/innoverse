@@ -77,16 +77,16 @@ const experiences: HomeExperience[] = [
 
 const HomeOfferings = () => {
   return (
-    <section className="pt-10 sm:pt-12 pb-16 relative sm:pb-20 bg-secondary-background">
-      <div className="container mx-auto px-4">
+    <section className="py-20">
+      <div className="max-w-[1400px] mx-auto px-4">
         {/* Heading */}
-        <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-snug">
+        <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold leading-snug">
           Dive Into the{" "}
           <span className="text-secondary">Innoverse Experience</span>
         </h2>
 
         {/* Subheading */}
-        <h4 className="font-medium text-center mt-4 sm:mt-6 max-w-4xl md:max-w-5xl lg:max-w-7xl mx-auto text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed">
+        <h4 className="font-medium text-center mt-4 sm:mt-6 max-w-4xl md:max-w-5xl mx-auto text-base sm:text-xl  leading-relaxed">
           Step into The Innoverse Experience—where interactive exhibits and live
           demonstrations spark{" "}
           <span className="text-secondary">curiosity and wonder</span>, blending
@@ -94,7 +94,7 @@ const HomeOfferings = () => {
         </h4>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 pt-12 sm:pt-20">
+        <div className="grid grid-cols-1 2xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 pt-12 sm:pt-20">
           {experiences.map((exp) => {
             return (
               <HomeExperienceCard
@@ -109,17 +109,12 @@ const HomeOfferings = () => {
         </div>
         <div className="pt-16 pb-6 flex items-center justify-center">
           <Link
-            href={"/dynamic-experience"}
-            className="py-4 px-8 bg-white shadow-[0px_0px_14px_4px_rgba(0,0,0,0.25)] transition-all hover:-translate-y-1 text-secondary font-extrabold text-xl rounded-full uppercase"
+            href={"/dynamic-experiences"}
+            className="py-4 px-8 bg-white rounded-sm transition-all hover:-translate-y-1 text-secondary font-extrabold text-xl shadow-sm uppercase"
           >
             Learn More
           </Link>
         </div>
-      </div>
-      <div className="rotate-[-90deg] absolute -right-50 md:-right-80 bottom-100 pointer-events-none z-10 text-secondary  md:font-bold tracking-[.2em] leading-[120%] text-7xl md:text-9xl lg:text-[120px] opacity-10">
-        <h2>
-          WHITEBOARD <br /> INITIATIVES
-        </h2>
       </div>
     </section>
   );

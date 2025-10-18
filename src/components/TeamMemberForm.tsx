@@ -1,17 +1,11 @@
 import type React from "react";
 import FormSelect from "./FormSelect";
-
-interface TeamMember {
-  fullName: string;
-  gender: string;
-  grade: string;
-  tshirtSize: string;
-  phoneNumber: string;
-  instituteName: string;
-}
+import { TeamMember } from "@/app/register/page";
+import { useEffect, useState } from "react";
 
 interface TeamMemberFormProps {
   member: TeamMember;
+  grade: string;
   memberIndex: number;
   onUpdate: (index: number, field: keyof TeamMember, value: string) => void;
   onRemove: (index: number) => void;
@@ -19,10 +13,29 @@ interface TeamMemberFormProps {
 }
 
 const GRADE_OPTIONS = [
-  { value: "class-9", label: "Class - 9" },
-  { value: "class-10", label: "Class - 10" },
-  { value: "class-11", label: "Class - 11" },
-  { value: "class-12", label: "Class - 12" },
+  { value: "9", label: "Class - 9" },
+  { value: "10", label: "Class - 10" },
+  { value: "11", label: "Class - 11" },
+  { value: "12", label: "Class - 12" },
+];
+
+const juniorGrade_Options = [
+  { value: "6", label: "Class - 6" },
+  { value: "7", label: "Class - 7" },
+  { value: "8", label: "Class - 8" },
+  { value: "9", label: "Class - 9" },
+  { value: "10", label: "Class - 10" },
+];
+
+const seniorGrade_Options = [
+  { value: "11", label: "Class - 11" },
+  { value: "12", label: "Class - 12" },
+];
+
+const underGraduateGrade_Options = [
+  { value: "11", label: "Class - 11" },
+  { value: "12", label: "Class - 12" },
+  { value: "13", label: "Undergraduate" },
 ];
 
 const GENDER_OPTIONS = [
@@ -41,10 +54,25 @@ const TSHIRT_OPTIONS = [
 const TeamMemberForm: React.FC<TeamMemberFormProps> = ({
   member,
   memberIndex,
+  grade,
   onUpdate,
   onRemove,
   showRemove,
 }) => {
+  const [gradeOptions, setGradeOptions] = useState<
+    { value: string; label: string }[] | []
+  >([]);
+  useEffect(() => {
+    if (["6", "7", "8", "9", "10"].includes(grade)) {
+      setGradeOptions(juniorGrade_Options);
+    }
+    if (["11", "12"].includes(grade)) {
+      setGradeOptions(seniorGrade_Options);
+    }
+    if (grade === "13") {
+      setGradeOptions(underGraduateGrade_Options);
+    }
+  }, [grade]);
   return (
     <div className="space-y-4 mb-6 pb-6 border-b border-gray-200 last:border-b-0">
       <div className="flex items-center justify-between">
@@ -79,7 +107,7 @@ const TeamMemberForm: React.FC<TeamMemberFormProps> = ({
         <FormSelect
           value={member.grade}
           onChange={(e) => onUpdate(memberIndex, "grade", e.target.value)}
-          options={GRADE_OPTIONS}
+          options={gradeOptions}
           placeholder="Grade"
         />
 
@@ -108,6 +136,13 @@ const TeamMemberForm: React.FC<TeamMemberFormProps> = ({
           className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-lime-500 focus:border-transparent bg-white"
         />
       </div>
+      <input
+        type="email"
+        placeholder="Email Address"
+        value={member.email}
+        onChange={(e) => onUpdate(memberIndex, "email", e.target.value)}
+        className="px-4 py-2 border w-full col-span-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-lime-500 focus:border-transparent bg-white"
+      />
     </div>
   );
 };
