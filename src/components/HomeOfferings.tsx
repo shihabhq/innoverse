@@ -68,7 +68,7 @@ const HomeOfferings = () => {
         {/* Heading */}
         <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold leading-snug">
           Dive Into the{" "}
-          <span className="text-secondary">Innoverse Experience</span>
+          <span className="text-secondary">Innoverse Dynamic Experiences</span>
         </h2>
 
         {/* Subheading */}
