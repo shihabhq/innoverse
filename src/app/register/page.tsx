@@ -81,9 +81,9 @@ const RegistrationForm = () => {
     // { name: "3-Minute Research", selected: false, price: 100 },
   ];
   const juniorTeamCompetitions = [
+    { name: "Robo Soccer", selected: false, price: 600, icon: Bot },
+    { name: "Line Forwarding Robot", selected: false, price: 600, icon: Zap },
     { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
-    { name: "Robo Soccer", selected: false, price: 800, icon: Bot },
-    { name: "Line Forwarding Robot", selected: false, price: 800, icon: Zap },
   ];
 
   const seniorSoloCompetitions = [
@@ -98,17 +98,17 @@ const RegistrationForm = () => {
     // { name: "3-Minute Research", selected: false, price: 100 },
   ];
   const seniorTeamCompetitions = [
+    { name: "Robo Soccer", selected: false, price: 600, icon: Bot },
+    { name: "Line Forwarding Robot", selected: false, price: 600, icon: Zap },
     { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
-    { name: "Robo Soccer", selected: false, price: 800, icon: Bot },
-    { name: "Line Forwarding Robot", selected: false, price: 800, icon: Zap },
   ];
   const undergradSoloCompetitions = [
-    { name: "3-Minute Research", selected: false, price: 200, icon: FileText },
+    { name: "3-Minute Thesis", selected: false, price: 200, icon: FileText },
   ];
 
   const undergradTeamCompetitions = [
-    { name: "Robo Soccer", selected: false, price: 800, icon: Bot },
-    { name: "Line Forwarding Robot", selected: false, price: 800, icon: Zap },
+    { name: "Robo Soccer", selected: false, price: 600, icon: Bot },
+    { name: "Line Forwarding Robot", selected: false, price: 600, icon: Zap },
   ];
 
   const [soloCompetitions, setSoloCompetitions] = useState<Competition[] | []>([
@@ -376,7 +376,7 @@ const RegistrationForm = () => {
         "Competitive Programming": "programming",
         "Math Maestros": "m_maestros",
         "Research Article": "r_article",
-        "3-Minute Research": "3m-res",
+        "3-Minute Thesis": "3m-res",
       };
 
       const teamCompetitionCodeMap: { [key: string]: string } = {
@@ -539,7 +539,11 @@ const RegistrationForm = () => {
             {currentStep === 2 && (
               <>
                 <RegistrationLeftDetailText text="You can register for solo events, team events, or both." />
-                <RegistrationLeftDetailText text="For team events, you'll need to provide your team name and member details." />
+                <RegistrationLeftDetailText text="For team events, you'll need to provide your team name and member details. You are the Team leader." />
+                {formData.grade !== "13" && (
+                  <RegistrationLeftDetailText text="The team member for Qwizard Mania is 2. The Member 01 will be your teammate for this round. For Line Forwarding Robot and Robo Soccer, The team member limit is a total 4." />
+                )}
+                <RegistrationLeftDetailText text="One Member can register with one email once as a leader. If you choose a different team to participate for different team competition, please tell another team member to register as a team leader and add you as a team member." />
                 <RegistrationLeftDetailText text="Pick wisely — this decides where you'll shine!" />
               </>
             )}
@@ -573,7 +577,7 @@ const RegistrationForm = () => {
       </div>
 
       {/* Right Panel - Form Section */}
-      <div className="lg:w-[55%] bg-primary-background p-8 lg:p-10 flex flex-col">
+      <div className="lg:w-[55%] bg-primary-background p-4 sm:p-8 lg:p-10 flex flex-col">
         <StepIndicator currentStep={currentStep} steps={steps} />
 
         <div className="flex-1 flex flex-col items-center">

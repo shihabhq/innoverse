@@ -27,11 +27,11 @@ const soloEvents: HomeEvent[] = [
     href: "/competitions/research-article-contest",
   },
   {
-    title: "3-Minute Research",
+    title: "3-Minute Thesis",
     description:
-      "The 3-Minute Research Contest challenges undergraduate students to present their thesis, research project, or paper in just three minutes.",
+      "The 3-Minute Thesis Contest challenges undergraduate students to present their thesis, research project, or paper in just three minutes.",
     src: "/home/events/research.svg",
-    href: "/competitions/3-minute-research",
+    href: "/competitions/3-minute-thesis-persentation",
   },
 
   {

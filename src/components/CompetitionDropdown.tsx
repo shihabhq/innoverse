@@ -9,6 +9,7 @@ interface CompetitionDropdownProps {
   onSelect: (index: number) => void;
   bgColor?: string;
   hoverColor?: string;
+  warning?: string | undefined;
   researchSelected?: boolean;
   description?: string;
 }
@@ -21,6 +22,7 @@ const CompetitionDropdown: React.FC<CompetitionDropdownProps> = ({
   onSelect,
   bgColor = "bg-secondary-background",
   researchSelected,
+  warning,
   description,
   hoverColor = "hover:bg-lime-200",
 }) => {
@@ -81,10 +83,9 @@ const CompetitionDropdown: React.FC<CompetitionDropdownProps> = ({
           {competitions.length > 1 && description && (
             <p className="text-gray-500 text-sm font-medium">{description}</p>
           )}
-          {researchSelected && (
+          {warning && (
             <div className="mt-4 text-yellow-700 bg-yellow-100 border border-yellow-400 rounded-lg p-3 text-sm">
-              ⚠️ You&apos;ll receive a link to submit your research article with
-              the confirmation email afterwards.
+              ⚠️ {warning}
             </div>
           )}
         </div>

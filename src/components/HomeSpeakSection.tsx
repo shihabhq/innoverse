@@ -78,20 +78,21 @@ const HomeSpeakSection = () => {
                   className="text-xl md:text-2xl font-bold"
                   style={{ color: "var(--color-dark-accent)" }}
                 >
-                  Expert-Led Inspiration
+                  Sketch Talk
                 </h3>
               </div>
               <p
                 className="text-base md:text-lg leading-relaxed"
                 style={{ color: "var(--color-dark-accent)" }}
               >
-                Top experts in astronomy, economics, tech, and STEM share
-                stories and strategies to inspire 2,000–4,000 youth to dream
-                big, innovate, and take action. Through engaging talks and
-                real-world insights, participants will gain the motivation and
-                skills to shape a smarter, more connected future.It’s not just
-                about learning — it’s about sparking a movement of young
-                innovators ready to transform ideas into impact.
+                𝗦𝗸𝗲𝘁𝗰𝗵𝗧𝗮𝗹𝗸 is a series of powerful, story-driven sessions where
+                changemakers and top STEM experts share their journeys, lessons,
+                and practical insights to inspire hundreds of youth to dream
+                big, innovate, and take action. Designed to be short, personal,
+                and packed with takeaways, SketchTalk goes beyond learning—it
+                sparks a movement of young innovators equipped with real-world
+                knowledge and motivation to shape a smarter, more
+                connected future.
               </p>
             </div>
             <div className="order-1 lg:order-2 rounded-2xl overflow-hidden shadow-lg h-64 md:h-80 lg:h-96">
