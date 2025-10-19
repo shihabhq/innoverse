@@ -33,8 +33,6 @@ const GRADE_OPTIONS = [
   { value: "13", label: "Undergraduate" },
 ];
 
-
-
 const TSHIRT_OPTIONS = [
   { value: "s", label: "S" },
   { value: "m", label: "M" },
@@ -127,7 +125,7 @@ const Step1PersonalInfo: React.FC<Step1PersonalInfoProps> = ({
           />
         </div>
         <FormInput
-          name="Campus Ambassador"
+          name="Campus Ambassador or how did you hear about us?"
           placeholder="Campus Ambassador Name"
           value={formData.address}
           onChange={(e) => onFormDataChange("address", e.target.value)}

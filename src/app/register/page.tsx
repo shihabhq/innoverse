@@ -72,7 +72,7 @@ const RegistrationForm = () => {
 
   const juniorSoloCompetitions: Competition[] = [
     { name: "Science Olympiad", selected: false, icon: FlaskConical },
-    { name: "Competitive Programming", selected: false, icon: Code },
+    { name: "Competitive Programming Contest", selected: false, icon: Code },
     {
       icon: Calculator,
       name: "Math Maestros",
@@ -82,7 +82,7 @@ const RegistrationForm = () => {
   ];
   const juniorTeamCompetitions = [
     { name: "Robo Soccer", selected: false, price: 600, icon: Bot },
-    { name: "Line Forwarding Robot", selected: false, price: 600, icon: Zap },
+    { name: "Line Follower Robot", selected: false, price: 600, icon: Zap },
     { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
   ];
 
@@ -93,13 +93,13 @@ const RegistrationForm = () => {
       selected: false,
     },
     { name: "Science Olympiad", selected: false, icon: FlaskConical },
-    { name: "Competitive Programming", selected: false, icon: Code },
+    { name: "Competitive Programming Contest", selected: false, icon: Code },
     { name: "Research Article", selected: false, icon: Presentation },
     // { name: "3-Minute Research", selected: false, price: 100 },
   ];
   const seniorTeamCompetitions = [
     { name: "Robo Soccer", selected: false, price: 600, icon: Bot },
-    { name: "Line Forwarding Robot", selected: false, price: 600, icon: Zap },
+    { name: "Line Follower Robot", selected: false, price: 600, icon: Zap },
     { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
   ];
   const undergradSoloCompetitions = [
@@ -108,12 +108,12 @@ const RegistrationForm = () => {
 
   const undergradTeamCompetitions = [
     { name: "Robo Soccer", selected: false, price: 600, icon: Bot },
-    { name: "Line Forwarding Robot", selected: false, price: 600, icon: Zap },
+    { name: "Line Follower Robot", selected: false, price: 600, icon: Zap },
   ];
 
   const [soloCompetitions, setSoloCompetitions] = useState<Competition[] | []>([
     { name: "Science Olympiad", selected: false, icon: FlaskConical },
-    { name: "Competitive Programming", selected: false, icon: Code },
+    { name: "Competitive Programming Contest", selected: false, icon: Code },
   ]);
 
   const [teamCompetitions, setTeamCompetitions] = useState<Competition[] | []>([
@@ -373,7 +373,7 @@ const RegistrationForm = () => {
 
       const competitionCodeMap: { [key: string]: string } = {
         "Science Olympiad": "sc_olym",
-        "Competitive Programming": "programming",
+        "Competitive Programming Contest": "programming",
         "Math Maestros": "m_maestros",
         "Research Article": "r_article",
         "3-Minute Thesis": "3m-res",
@@ -381,7 +381,7 @@ const RegistrationForm = () => {
 
       const teamCompetitionCodeMap: { [key: string]: string } = {
         "Robo Soccer": "robo_soccer",
-        "Line Forwarding Robot": "lfr",
+        "Line Follower Robot": "lfr",
         "Qwizard Mania": "q_mania",
         "Project Showcasing": "pr_show",
       };
@@ -449,10 +449,10 @@ const RegistrationForm = () => {
         };
       }
 
-      console.log(
-        "Registration Data:",
-        JSON.stringify(registrationData, null, 2)
-      );
+      // console.log(
+      //   "Registration Data:",
+      //   JSON.stringify(registrationData, null, 2)
+      // );
 
       try {
         const response = await fetch(
@@ -474,7 +474,7 @@ const RegistrationForm = () => {
           const firstErrorKey = Object.keys(result.errors || {})[0];
           const firstErrorMessage =
             result.errors?.[firstErrorKey]?.[0] || "Unknown validation error.";
-          console.log(`${firstErrorKey}: ${firstErrorMessage}`);
+          // console.log(`${firstErrorKey}: ${firstErrorMessage}`);
 
           showCustomError(`${firstErrorKey}: ${firstErrorMessage}`);
           return;
@@ -541,7 +541,7 @@ const RegistrationForm = () => {
                 <RegistrationLeftDetailText text="You can register for solo events, team events, or both." />
                 <RegistrationLeftDetailText text="For team events, you'll need to provide your team name and member details. You are the Team leader." />
                 {formData.grade !== "13" && (
-                  <RegistrationLeftDetailText text="The team member for Qwizard Mania is 2. The Member 01 will be your teammate for this round. For Line Forwarding Robot and Robo Soccer, The team member limit is a total 4." />
+                  <RegistrationLeftDetailText text="The team member for Qwizard Mania is 2. The Member 01 will be your teammate for this round. For Line Follower Robot and Robo Soccer, The team member limit is a total 4." />
                 )}
                 <RegistrationLeftDetailText text="One Member can register with one email once as a leader. If you choose a different team to participate for different team competition, please tell another team member to register as a team leader and add you as a team member." />
                 <RegistrationLeftDetailText text="Pick wisely — this decides where you'll shine!" />
