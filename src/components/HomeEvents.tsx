@@ -37,7 +37,7 @@ const soloEvents: HomeEvent[] = [
   {
     title: "Programming  Contest",
     description:
-      "The Programming Contest is one of the flagship events of Innoverse, designed to showcase Bangladesh's brightest young problem solvers...",
+      "The Competitive Programming Contest is one of the flagship events of Innoverse, designed to showcase Bangladesh's brightest young problem solvers...",
     src: "/home/events/coding.svg",
     href: "/competitions/programming-contest",
   },
@@ -54,7 +54,7 @@ const teamEvents: HomeEvent[] = [
   {
     title: "Robo Soccer",
     description:
-      "Soccer Bot is a competitive robotics event where teams of undergraduate students design, build, and program autonomous or manually controlled robots capable of playing soccer.",
+      "Robosoccer is a competitive robotics event wheref students design, build, and program autonomous or manually controlled robots capable of playing soccer. The event blends mechanical design, electronics, and",
     src: "/home/events/robo-soccer.svg",
     href: "/competitions/robosoccer",
   },

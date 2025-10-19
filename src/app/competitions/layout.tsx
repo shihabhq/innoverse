@@ -18,14 +18,22 @@ import {
 const competitions = [
   { name: "Math Maestro", slug: "math-maestro", icon: Calculator },
   { name: "Science Olympiad", slug: "science-olympiad", icon: FlaskConical },
-  { name: "Programming Contest", slug: "programming-contest", icon: Code },
+  {
+    name: "Competitive Programming Contest",
+    slug: "programming-contest",
+    icon: Code,
+  },
   { name: "Qwizard Mania", slug: "qwizard-mania", icon: Brain },
   {
     name: "Research Article Contest",
     slug: "research-article-contest",
     icon: FileText,
   },
-  { name: "3-Minute Thesis Presentation", slug: "3-minute-thesis-presentation", icon: Presentation },
+  {
+    name: "3-Minute Thesis Presentation",
+    slug: "3-minute-thesis-presentation",
+    icon: Presentation,
+  },
   { name: "RoboSoccer", slug: "robosoccer", icon: Bot },
   { name: "Line Follower Robot (LFR)", slug: "line-follower-robot", icon: Zap },
 ];
