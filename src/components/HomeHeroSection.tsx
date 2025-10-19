@@ -48,7 +48,7 @@ const HomeHeroSection = () => {
           </div>
           <div className="p-3 z-20 sm:p-4 bg-primary text-white rounded-sm w-full sm:w-[260px] ">
             <h2 className="text-5xl md:text-6xl xl:text-7xl font-extrabold">
-              8+
+              8
             </h2>
             <h3 className="text-lg font-semibold">Challenging Competitions</h3>
           </div>

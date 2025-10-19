@@ -80,14 +80,18 @@ const competitions = {
                 Team Formation
               </h4>
               <p className="text-gray-700">
-                After Round 1, finalists are grouped into 6 balanced teams, each
-                consisting of:
+                After Round 1, finalists are grouped into 6 balanced teams
+                formed by us, each consisting of winners from each category:
               </p>
               <ul className="mt-2 space-y-1 text-gray-700 ml-4">
                 <li>• 1 Junior (6-8)</li>
                 <li>• 1 Secondary (9-10)</li>
                 <li>• 1 Senior (11-12)</li>
               </ul>
+              <p className="text-gray-700 mt-2">
+                Teams are announced on Day 1 after evaluation. These newly
+                formed teams proceed to Round 2.
+              </p>
             </div>
           </div>
         </div>
@@ -113,7 +117,9 @@ const competitions = {
                 <li>
                   • Each team must collect 6 problems (2 Easy, 2 Medium, 2 Hard)
                 </li>
-                <li>• Distribution rule prevents skewed choices</li>
+                <li>
+                  • Distribution rule prevents skewed choices (e.g., all Easy)
+                </li>
               </ul>
             </div>
 
@@ -123,9 +129,12 @@ const competitions = {
                 <li>
                   • Easy = 10 points, Medium = 20 points, Hard = 30 points
                 </li>
-                <li>• Each team starts with 400 points</li>
+                <li>• Each team starts with 400 points (currency = points)</li>
                 <li>• Bids must increase gradually (by 10-20 points)</li>
-                <li>• Teams cannot overspend</li>
+                <li>
+                  • Teams cannot overspend; unused currency cannot be carried
+                  forward
+                </li>
               </ul>
             </div>
 
@@ -134,7 +143,6 @@ const competitions = {
               <ul className="space-y-1 ml-4">
                 <li>• Each problem shown for 30 seconds before bidding</li>
                 <li>• Maximum 2 minutes allowed for bidding</li>
-                <li>• Winning team receives problem in sealed envelope</li>
               </ul>
             </div>
           </div>
@@ -145,16 +153,40 @@ const competitions = {
             <AlertCircle className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
             <div>
               <h4 className="font-semibold text-yellow-900 mb-2">
-                Special Cases
+                Special Cases & Solutions
               </h4>
               <ul className="space-y-2 text-yellow-800 text-sm">
                 <li>
-                  • If a team spends all currency early, remaining problems will
-                  be assigned by moderators with penalty
+                  <strong>If a team spends all currency early:</strong> Teams
+                  unable to collect 6 problems will be assigned remaining ones
+                  by moderators. A penalty percentage will be applied during
+                  evaluation.
                 </li>
                 <li>
-                  • Unclaimed problems will be reintroduced for special bidding
-                  session
+                  <strong>
+                    If bidding ends with leftover teams without enough problems:
+                  </strong>{" "}
+                  Unclaimed problems will be reintroduced for a special bidding
+                  session. Ensures all teams secure a balanced distribution.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div className="flex items-start gap-3">
+            <Clock className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 className="font-semibold text-blue-900 mb-2">
+                Time Management
+              </h4>
+              <ul className="space-y-1 text-blue-800 text-sm ml-4">
+                <li>• Viewing each problem: 30 seconds</li>
+                <li>• Maximum bidding per problem: 2 minutes</li>
+                <li>
+                  • Teams solve their collected problems only after the official
+                  contest begins
                 </li>
               </ul>
             </div>
@@ -248,7 +280,7 @@ const competitions = {
     ),
   },
   "programming-contest": {
-    name: "Programming Contest",
+    name: "Competitive Programming Contest",
     icon: Code,
     content: (
       <>
@@ -257,12 +289,12 @@ const competitions = {
             Overview
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            The Programming Contest is one of the flagship events of Innoverse,
-            designed to showcase Bangladesh&apos;s brightest young problem
-            solvers. Structured in competitive programming (CP) style and
-            aligned with international standards, this contest aims to nurture
-            the next generation of coders, preparing them for national and
-            international platforms such as BdOI and IOI.
+            The Competitive Programming Contest is one of the flagship events of
+            Innoverse, designed to showcase Bangladesh&apos;s brightest young
+            problem solvers. Structured in competitive programming (CP) style
+            and aligned with international standards, this contest aims to
+            nurture the next generation of coders, preparing them for national
+            and international platforms such as BdOI and IOI.
           </p>
         </div>
 
@@ -319,14 +351,17 @@ const competitions = {
             <h4 className="font-semibold text-purple-900 mb-3">
               Contest Platform
             </h4>
-            <ul className="space-y-2 text-purple-800 text-sm">
+            {/* <ul className="space-y-2 text-purple-800 text-sm">
               <li>
                 <strong>Toph.co:</strong> Popular Bangladeshi platform
               </li>
               <li>
                 <strong>Vjudge.net:</strong> International platform
               </li>
-            </ul>
+            </ul> */}
+            <h3 className="font-semibold text-base lg:text-xl text-red-500 text-center">
+              To Be Anounced Soon
+            </h3>
           </div>
 
           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
@@ -341,13 +376,15 @@ const competitions = {
                 <strong>Duration:</strong> 3 hours
               </li>
               <li>
-                <strong>Scoring:</strong> Full points for correct solution
+                <strong>Scoring:</strong> Full points for correct solution, No
+                subtasks and Wrong submission may lead to a penalty decided by
+                online judge
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        {/* <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
           <div className="flex items-start gap-3">
             <Users className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
             <div>
@@ -360,7 +397,7 @@ const competitions = {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </>
     ),
   },
@@ -376,8 +413,8 @@ const competitions = {
           <p className="text-gray-700 leading-relaxed">
             Qwizard Mania is a dynamic, team-based contest designed to test
             knowledge beyond textbooks. Questions span general science, the
-            history of discoveries, Nobel Prize trivia, and self-study topics,
-            encouraging both breadth and depth of understanding.
+            history of discoveries, Nobel Prize trivia etc, encouraging both
+            breadth and depth of understanding.
           </p>
         </div>
 
@@ -478,6 +515,12 @@ const competitions = {
                 <strong>Submission Type:</strong> Online (PDF format only)
               </span>
             </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
+              <span>
+                <strong>Submission Deadline:</strong> November 4, 2025
+              </span>
+            </li>
           </ul>
         </div>
 
@@ -485,31 +528,69 @@ const competitions = {
           <h3 className="text-lg font-semibold text-[#323232] mb-4">
             Submission Guidelines
           </h3>
-          <div className="space-y-4 text-gray-700">
-            <p>Articles should follow the required structure:</p>
-            <ol className="space-y-1 list-decimal list-inside ml-2">
-              <li>Title & Author Information</li>
-              <li>Abstract (short summary)</li>
-              <li>Background / Problem Statement</li>
-              <li>Approach / Methodology</li>
-              <li>Key Findings, Insights, or Proposed Ideas</li>
-              <li>Limitations / Challenges</li>
-              <li>Future Goals or Aspirations</li>
-              <li>Sources / References (optional but recommended)</li>
-            </ol>
 
-            <div className="mt-4 space-y-2 text-sm">
-              <p>
-                <strong>Page Limit:</strong> 4-6 pages including cover page
-              </p>
-              <p>
-                <strong>Font:</strong> Times New Roman, 12pt
-              </p>
-              <p>
-                <strong>Cover Page Must Include:</strong> Name, Institution,
-                Class, Email, Article Title, Date
-              </p>
-            </div>
+          <div className="space-y-4 text-gray-700 text-sm">
+            <ol className="list-decimal list-inside space-y-3">
+              <li>
+                Participants submit their{" "}
+                <span className="underline">article</span> online within the
+                deadline.
+              </li>
+
+              <li>
+                Articles should follow the required structure:
+                <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+                  <li>Title & Author Information</li>
+                  <li>Abstract (short summary)</li>
+                  <li>Background / Problem Statement</li>
+                  <li>Approach / Methodology</li>
+                  <li>Key Findings, Insights, or Proposed Ideas</li>
+                  <li>Limitations / Challenges</li>
+                  <li>Future Goals or Aspirations</li>
+                  <li>Sources / References (optional but recommended)</li>
+                </ul>
+                <p className="italic mt-3 text-[13px]">
+                  The format{" "}
+                  <span className="font-semibold text-red-500">
+                    is not needed
+                  </span>{" "}
+                  to be followed rigorously. However, participants are
+                  encouraged to cover all these points{" "}
+                  <span className="underline font-semibold">
+                    through their whole Article
+                  </span>{" "}
+                  for extra points.
+                </p>
+              </li>
+
+              <li>
+                <span className="font-semibold">Page Limit:</span> 4–6 Pages
+                including a Cover Page containing{" "}
+                <span className="font-medium">
+                  Participants’ Name, Institution, Class, Mail ID, Research
+                  Article Title, Date of Submission.
+                </span>{" "}
+                Submission exceeding the limit{" "}
+                <span className="text-red-500 font-medium">
+                  may be disqualified.
+                </span>
+              </li>
+
+              <li>
+                <span className="font-semibold">Font Details:</span> Times New
+                Roman, Font Size: 12pt (Heading and Subheadings can be adjusted
+                according to it)
+              </li>
+
+              <li>
+                Participants can add necessary images with proper reference or
+                source, but should not exceed the suggested page limit.
+              </li>
+              <li>
+                A screening panel evaluates and shortlists the best submissions
+                for final judging.
+              </li>
+            </ol>
           </div>
         </div>
 
@@ -527,8 +608,12 @@ const competitions = {
                 </li>
                 <li>• Plagiarism will result in penalties</li>
                 <li>
-                  • Core work must be the student&apos;s own (guidance
-                  permitted)
+                  • Submissions must reflect the capability of school/college
+                  students. Guidance from a teacher or a senior student is
+                  permitted, but the core work must be the student&apos;s
+                  own.Participants need to submit the details (Name, Contact
+                  Details, Institution, Relation with the student) of the mentor
+                  they have taken help from in the cover page.
                 </li>
               </ul>
             </div>
@@ -575,6 +660,12 @@ const competitions = {
               <span>
                 <strong>Content:</strong> Must be based on participant&apos;s
                 own research, thesis, or academic project
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
+              <span>
+                <strong>Submission Deadline:</strong> November 2, 2025
               </span>
             </li>
           </ul>
@@ -641,75 +732,153 @@ const competitions = {
     icon: Bot,
     content: (
       <>
+        {/* Overview */}
         <div>
           <h2 className="text-xl font-semibold text-[#323232] mb-3">
             Overview
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Soccer Bot is a competitive robotics event where teams of
-            undergraduate students design, build, and program autonomous or
-            manually controlled robots capable of playing soccer. The event
-            blends mechanical design, electronics, and control strategy in a
-            dynamic, tournament-style environment.
+            Robosoccer is a competitive robotics event where students design,
+            build, and program autonomous or manually controlled robots capable
+            of playing soccer. The event blends mechanical design, electronics,
+            and control strategy in a dynamic, tournament-style environment,
+            challenging teams to engineer precision, speed, and teamwork.
           </p>
         </div>
 
+        {/* Eligibility */}
         <div className="bg-[#e5ecd9] rounded-lg p-5">
           <h3 className="text-lg font-semibold text-[#323232] mb-4">
-            Eligibility & Team Composition
+            Eligibility
           </h3>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
-              <span>
-                <strong>Eligibility:</strong> Open for all
-              </span>
+              <span>Open for all participants.</span>
             </li>
             <li className="flex items-start gap-2">
-              <Users className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
+              <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
               <span>
-                <strong>Team Size:</strong> Maximum 5 members per team
+                Teams must present valid institutional identification.
               </span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
-              <span>Cross-institutional teams are allowed</span>
+              <span>Cross-institutional teams are allowed.</span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
-              <span>Each team must own and operate its own soccer bot</span>
+              <span>A participant cannot be part of multiple teams.</span>
             </li>
           </ul>
         </div>
 
-        <div className="bg-[#e2ffb4] rounded-lg p-5">
+        {/* Team Composition */}
+        <div className="bg-[#e5ecd9] rounded-lg p-5">
+          <h3 className="text-lg font-semibold text-[#323232] mb-4">
+            Team Composition
+          </h3>
+          <ul className="space-y-2 text-gray-700">
+            <li className="flex items-start gap-2">
+              <Users className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
+              <span>
+                <strong>Team Size:</strong> Maximum 5 members per team.
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
+              <span>
+                Each team must own and operate its own soccer bot and
+                controller.
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
+              <span>
+                Sharing of bots or use of pre-built robots is strictly
+                prohibited.
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
+              <span>Only registered team members can operate the bot.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
+              <span>Bot controllers can be switched only during halftime.</span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Robot Specifications */}
+        <div className="bg-[#e2ffb4] rounded-lg p-5 font-roboto">
           <h3 className="text-lg font-semibold text-[#323232] mb-4">
             Robot Specifications
           </h3>
           <div className="grid sm:grid-cols-2 gap-3 text-sm text-gray-700">
             <div className="flex justify-between border-b border-gray-300 pb-2">
               <span className="font-semibold">Dimensions:</span>
-              <span>30×30×20 cm (max)</span>
+              <span>Maximum 30 cm × 30 cm × 20 cm</span>
             </div>
             <div className="flex justify-between border-b border-gray-300 pb-2">
               <span className="font-semibold">Weight:</span>
-              <span>Up to 3 kg</span>
+              <span>
+                Up to 3 kg (Each 100g above incurs a one-goal penalty)
+              </span>
             </div>
             <div className="flex justify-between border-b border-gray-300 pb-2">
-              <span className="font-semibold">Power:</span>
-              <span>Max 24V onboard</span>
+              <span className="font-semibold">Power Source:</span>
+              <ul className="list-disc ml-4">
+                <li>On-board power supply only (maximum 24V)</li>
+                <li>No external or wired power allowed</li>
+              </ul>
             </div>
             <div className="flex justify-between border-b border-gray-300 pb-2">
               <span className="font-semibold">Control:</span>
-              <span>Wireless only</span>
+              <span>
+                Wireless only (RF, NRF, Bluetooth, Joystick, or mobile app)
+              </span>
+            </div>
+            <div className="flex justify-between border-b border-gray-300 pb-2">
+              <span className="font-semibold">Mechanics:</span>
+              <ul className="list-disc ml-4">
+                <li>
+                  Bots may push or kick the ball but cannot grab or enclose it.
+                </li>
+                <li>
+                  Servo-based kicking and rubber pads for ball bouncing are
+                  prohibited.
+                </li>
+              </ul>
+            </div>
+            <div className="flex justify-between border-b border-gray-300 pb-2">
+              <span className="font-semibold">Bracket & Material:</span>
+              <ul className="list-disc ml-4">
+                <li>
+                  Bracket length ≤ 8 cm, width ≤ 20 cm; must remain open-type.
+                </li>
+                <li>
+                  Permissible materials: SS, acrylic, wood, PVC, or cardboard.
+                </li>
+                <li>No sharp, damaging, or hazardous parts allowed.</li>
+              </ul>
             </div>
           </div>
-          <p className="mt-3 text-sm text-gray-600">
-            <strong>Note:</strong> Each 100g above weight limit incurs a
-            one-goal penalty
-          </p>
         </div>
 
+        {/* Arena & Equipment */}
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <h4 className="font-semibold text-yellow-900 mb-3">
+            Arena & Equipment
+          </h4>
+          <ul className="space-y-1 text-yellow-800 text-sm">
+            <li>• Arena designed to mimic a mini soccer field.</li>
+            <li>• Referees and volunteers will supervise each match.</li>
+            <li>• Only event volunteers can touch bots during gameplay.</li>
+          </ul>
+        </div>
+
+        {/* Match Format */}
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
           <h4 className="font-semibold text-blue-900 mb-3">Match Format</h4>
           <ul className="space-y-2 text-blue-800 text-sm">
@@ -720,7 +889,8 @@ const competitions = {
           </ul>
         </div>
 
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+        {/* Scoring Rules */}
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4 font-roboto">
           <h4 className="font-semibold text-green-900 mb-3">Scoring Rules</h4>
           <div className="space-y-2 text-green-800 text-sm">
             <div className="flex justify-between">
@@ -736,12 +906,21 @@ const competitions = {
               <span className="font-semibold">-1 point</span>
             </div>
             <div className="flex justify-between">
-              <span>Overweight penalty:</span>
+              <span>Bot overweight penalty:</span>
               <span className="font-semibold">-1 goal per 100g</span>
             </div>
+            <div className="flex justify-between">
+              <span>Repair penalty:</span>
+              <span className="font-semibold">-1 per 10 seconds used</span>
+            </div>
           </div>
+          <p className="mt-3 text-sm text-gray-600">
+            <strong>Final Score:</strong> (Goals × 3) – (Repair Penalty + Foul
+            Penalty)
+          </p>
         </div>
 
+        {/* Fouls & Penalties */}
         <div className="bg-red-50 border border-red-200 rounded-lg p-4">
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
@@ -750,13 +929,83 @@ const competitions = {
                 Fouls & Penalties
               </h4>
               <ul className="space-y-1 text-red-800 text-sm">
-                <li>• Touching bot during play</li>
-                <li>• Continuous entanglement (10 sec) → Reset</li>
-                <li>• 3 fouls → Opponent gets penalty kick</li>
-                <li>• Offensive behavior → Immediate disqualification</li>
+                <li>• Touching the bot during play.</li>
+                <li>
+                  • Continuous entanglement (10 sec) → Reset to initial
+                  positions.
+                </li>
+                <li>• Intentional obstruction or defensive stalling.</li>
+                <li>• Exceeding restart limits or causing arena damage.</li>
+                <li>• 3 fouls → Opponent gets a penalty kick.</li>
+                <li>
+                  • Offensive behavior towards officials → Immediate
+                  disqualification.
+                </li>
               </ul>
             </div>
           </div>
+        </div>
+
+        {/* Penalty Shootout Rules */}
+        <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+          <h4 className="font-semibold text-purple-900 mb-3">
+            Penalty Shootout Rules
+          </h4>
+          <ul className="space-y-1 text-purple-800 text-sm">
+            <li>
+              • If a bot is inactive for 30 sec → Opponent receives a penalty
+              shot.
+            </li>
+            <li>• 15-second limit per penalty attempt (clock paused).</li>
+            <li>• Each team gets 3 penalty attempts in tiebreakers.</li>
+            <li>• Team with more goals wins.</li>
+            <li>• If still tied → team with fewer fouls wins.</li>
+          </ul>
+        </div>
+
+        {/* Inspection & Compliance */}
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+          <h4 className="font-semibold text-gray-800 mb-3">
+            Inspection & Compliance
+          </h4>
+          <ul className="space-y-1 text-gray-700 text-sm">
+            <li>• All bots undergo inspection 1 hour before matches.</li>
+            <li>• Size, weight, and voltage compliance required.</li>
+            <li>• Battery safety and mechanical structure checked.</li>
+            <li>• No grabbing or restricted mechanisms allowed.</li>
+            <li>• Failure to comply results in disqualification.</li>
+          </ul>
+        </div>
+
+        {/* Winner Declaration */}
+        <div className="bg-teal-50 border border-teal-200 rounded-lg p-4">
+          <h4 className="font-semibold text-teal-900 mb-3">
+            Winner Declaration
+          </h4>
+          <ul className="space-y-1 text-teal-800 text-sm">
+            <li>• The team with the highest score wins the match.</li>
+            <li>• In case of a tie, penalty shootout rules apply.</li>
+            <li>
+              • For uneven group qualifications, priority follows: Higher goal
+              difference → Lower fouls → Lower restarts.
+            </li>
+          </ul>
+        </div>
+
+        {/* Code of Conduct */}
+        <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+          <h4 className="font-semibold text-orange-900 mb-3">
+            Code of Conduct
+          </h4>
+          <ul className="space-y-1 text-orange-800 text-sm">
+            <li>• Teams must report within 2 minutes of call.</li>
+            <li>• Late arrivals forfeit matches.</li>
+            <li>
+              • Any act of misconduct or false identity leads to
+              disqualification.
+            </li>
+            <li>• The decision of the judges is final and binding.</li>
+          </ul>
         </div>
       </>
     ),
@@ -771,11 +1020,12 @@ const competitions = {
             Overview
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            The Line Follower Robot (LFR) competition challenges undergraduate
-            and polytechnic students to design, build, and program fully
-            autonomous robots capable of detecting and following a pre-defined
-            line path with precision, speed, and intelligence. This segment
-            blends hardware design, sensor calibration, and control logic.
+            The Line Follower Robot (LFR) competition challenges students to
+            design, build, and program fully autonomous robots capable of
+            detecting and following a pre-defined line path with precision,
+            speed, and intelligence. This segment blends hardware design, sensor
+            calibration, and control logic — testing innovation, efficiency, and
+            adaptability under real-world constraints.
           </p>
         </div>
 
@@ -792,49 +1042,68 @@ const competitions = {
               <Users className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
               <span>
                 <strong>Team Size:</strong> 3-5 members per team
+                (Cross-institution teams are allowed)
               </span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
-              <span>Cross-institution teams are allowed</span>
+              <span>
+                <strong>Bot Ownership:</strong> Each team must design and
+                program its own robot. No shared or commercially pre-built
+                robots are allowed.
+              </span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
               <span>
-                <strong>Autonomy:</strong> Fully autonomous, no manual control
+                <strong>Autonomy:</strong> Robots must operate fully
+                autonomously, no manual or wireless control permitted once the
+                run begins.
               </span>
             </li>
           </ul>
         </div>
 
-        <div className="bg-[#e2ffb4] rounded-lg p-5">
+        <div className="bg-[#e2ffb4] rounded-lg p-5 font-roboto">
           <h3 className="text-lg font-semibold text-[#323232] mb-4">
             Robot Specifications
           </h3>
           <div className="grid sm:grid-cols-2 gap-3 text-sm text-gray-700">
             <div className="flex justify-between border-b border-gray-300 pb-2">
               <span className="font-semibold">Dimensions:</span>
-              <span>25×25×25 cm (max)</span>
+              <span>Max 25 cm (L) × 25 cm (W) × 25 cm (H)</span>
             </div>
             <div className="flex justify-between border-b border-gray-300 pb-2">
               <span className="font-semibold">Weight:</span>
               <span>Max 2 kg</span>
             </div>
             <div className="flex justify-between border-b border-gray-300 pb-2">
-              <span className="font-semibold">Voltage:</span>
-              <span>≤ 16.8V (4S max)</span>
+              <span className="font-semibold">Power Supply:</span>
+              <span>Onboard battery (no wired power allowed)</span>
+            </div>
+            <div className="flex justify-between border-b border-gray-300 pb-2">
+              <span className="font-semibold">Voltage Limit:</span>
+              <span>≤ 16.8V (maximum 4S Battery)</span>
             </div>
             <div className="flex justify-between border-b border-gray-300 pb-2">
               <span className="font-semibold">Drive Type:</span>
-              <span>Wheeled only</span>
+              <span>Wheeled robot only</span>
             </div>
             <div className="flex justify-between border-b border-gray-300 pb-2">
-              <span className="font-semibold">Switches:</span>
+              <span className="font-semibold">Programmable Switches:</span>
               <span>Up to 4 allowed</span>
             </div>
             <div className="flex justify-between border-b border-gray-300 pb-2">
               <span className="font-semibold">Communication:</span>
-              <span>Prohibited</span>
+              <span>Wireless communication strictly prohibited</span>
+            </div>
+            <div className="flex justify-between border-b border-gray-300 pb-2">
+              <span className="font-semibold">Construction:</span>
+              <span>Self-built and programmed by team</span>
+            </div>
+            <div className="flex justify-between border-b border-gray-300 pb-2">
+              <span className="font-semibold">Environment:</span>
+              <span>Variable lighting conditions</span>
             </div>
           </div>
         </div>
@@ -844,13 +1113,19 @@ const competitions = {
             Arena Specifications
           </h4>
           <ul className="space-y-2 text-purple-800 text-sm">
-            <li>• Shape: Rectangular (approx. 12 ft × 10 ft)</li>
+            <li>• Shape & Size: Rectangular (approx. 12 ft × 10 ft)</li>
             <li>• Line Width: 25 mm</li>
             <li>
-              • Track Features: Curves, sharp turns, zigzags, crossovers, loops
+              • Surface: Black line on white background or white line on black
+              background
+            </li>
+            <li>
+              • Track Features: Straight and curved paths (min. radius 15 cm),
+              sharp turns (≥ 30°), zigzag sections, crossovers and loops
             </li>
             <li>• Line gaps: ≤ 15 cm</li>
-            <li>• Final round may include obstacles, walls, or bridges</li>
+            <li>• Obstacles, walls, or bridges may appear in final round</li>
+            <li>• Start & finish boxes: 25 cm × 25 cm</li>
           </ul>
         </div>
 
@@ -859,29 +1134,43 @@ const competitions = {
           <div className="space-y-3">
             <div>
               <p className="font-semibold text-blue-900 text-sm mb-1">
-                Stage 1: Preliminary Round
+                Stage 1: Inspection & Setup
               </p>
               <ul className="space-y-1 text-blue-800 text-sm ml-4">
-                <li>• Simple track with smooth curves</li>
-                <li>• Run Time: 3 minutes + 1 min calibration</li>
-                <li>• Max Restarts: 4</li>
+                <li>• Robots submitted for inspection before each round</li>
+                <li>• Size, weight, and voltage are checked</li>
+                <li>• 1 minute for calibration before the run</li>
               </ul>
             </div>
             <div>
               <p className="font-semibold text-blue-900 text-sm mb-1">
-                Stage 2: Final Round
+                Stage 2: Preliminary Round
               </p>
               <ul className="space-y-1 text-blue-800 text-sm ml-4">
-                <li>• Complex track with obstacles and bridges</li>
+                <li>• Simple track with smooth curves and no obstacles</li>
                 <li>• Run Time: 3 minutes + 1 min calibration</li>
-                <li>• Max Restarts: 5</li>
+                <li>• Max Restarts: 4 per run</li>
+                <li>• No checkpoints may be skipped</li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-semibold text-blue-900 text-sm mb-1">
+                Stage 3: Final Round
+              </p>
+              <ul className="space-y-1 text-blue-800 text-sm ml-4">
+                <li>
+                  • Complex track with obstacles, bridges, inverted lines, and
+                  discontinuities
+                </li>
+                <li>• Run Time: 3 minutes + 1 min calibration</li>
+                <li>• Max Restarts: 5 per run</li>
                 <li>• 1 checkpoint may be skipped with penalty</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4 font-roboto">
           <h4 className="font-semibold text-green-900 mb-3">Scoring System</h4>
           <div className="space-y-2 text-green-800 text-sm">
             <div className="flex justify-between">
@@ -901,12 +1190,14 @@ const competitions = {
               <span className="font-semibold">-70</span>
             </div>
             <div className="flex justify-between">
-              <span>Bonus: No Restart (B):</span>
+              <span>Bonus: Completed Without Restart (B):</span>
               <span className="font-semibold">+150</span>
             </div>
             <div className="flex justify-between">
               <span>Time Efficiency (T):</span>
-              <span className="font-semibold">(Total - Elapsed) × 1</span>
+              <span className="font-semibold">
+                (Total Time - Elapsed Time) × 1
+              </span>
             </div>
           </div>
           <p className="mt-3 font-semibold text-green-900 text-sm">
@@ -923,9 +1214,10 @@ const competitions = {
               </h4>
               <ul className="space-y-1 text-red-800 text-sm">
                 <li>• Failure to meet size/weight/voltage limits</li>
-                <li>• Wireless/manual intervention during run</li>
+                <li>• Wireless/manual intervention during the run</li>
                 <li>• Robot fails to move for 30+ seconds</li>
-                <li>• Damaging arena or other robots</li>
+                <li>• Damaging the arena or other robots</li>
+                <li>• Disrespectful conduct towards judges or volunteers</li>
                 <li>• Use of unsafe or prohibited components</li>
               </ul>
             </div>
