@@ -83,7 +83,7 @@ const RegistrationForm = () => {
   const juniorTeamCompetitions = [
     { name: "Robo Soccer", selected: false, price: 600, icon: Bot },
     { name: "Line Follower Robot", selected: false, price: 600, icon: Zap },
-    { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
+    // { name: "Qwizard Mania", selected: false, price: 600, icon: Brain },
   ];
 
   const seniorSoloCompetitions = [
@@ -134,7 +134,14 @@ const RegistrationForm = () => {
       } else {
         setSoloCompetitions(juniorSoloCompetitions);
       }
-      setTeamCompetitions(juniorTeamCompetitions);
+      if (formData.grade === "9" || formData.grade === "10") {
+        setTeamCompetitions([
+          ...juniorTeamCompetitions,
+          { name: "Qwizard Mania", selected: false, price: 600, icon: Brain },
+        ]);
+      } else {
+        setTeamCompetitions(juniorTeamCompetitions);
+      }
     }
     if (["11", "12"].includes(formData.grade)) {
       setSoloCompetitions(seniorSoloCompetitions);
@@ -541,7 +548,7 @@ const RegistrationForm = () => {
                 <RegistrationLeftDetailText text="You can register for solo events, team events, or both." />
                 <RegistrationLeftDetailText text="For team events, you'll need to provide your team name and member details. You are the Team leader." />
                 {formData.grade !== "13" && (
-                  <RegistrationLeftDetailText text="The team member for Qwizard Mania is 2. The Member 01 will be your teammate for this round. For Line Follower Robot and Robo Soccer, The team member limit is a total 4." />
+                  <RegistrationLeftDetailText text="3. The Member 01 and Member 02 will be your teammates for this round. For Line Follower Robot and Robo Soccer, The team member limit is a total 4." />
                 )}
                 <RegistrationLeftDetailText text="One Member can register with one email once as a leader. If you choose a different team to participate for different team competition, please tell another team member to register as a team leader and add you as a team member." />
                 <RegistrationLeftDetailText text="Pick wisely — this decides where you'll shine!" />

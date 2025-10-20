@@ -415,6 +415,13 @@ export default function CompetitionsPage() {
                   Round (Onsite)
                 </span>
               </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
+                <span>
+                  <strong>Preliminary Rount Starts:</strong> November 1, 2025
+                  Time: 7:00 PM – 10:00 PM
+                </span>
+              </li>
             </ul>
           </div>
 
@@ -531,7 +538,8 @@ export default function CompetitionsPage() {
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
                 <span>
-                  <strong>Categories:</strong> Junior (6-8), Senior (9-12)
+                  <strong>Categories:</strong> Secondary(9-10), Higher Secondary
+                  (11-12)
                 </span>
               </li>
             </ul>
@@ -544,7 +552,7 @@ export default function CompetitionsPage() {
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
-                <span>Teams must consist of 2 members</span>
+                <span>Teams must consist of 3 members</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
@@ -918,7 +926,7 @@ export default function CompetitionsPage() {
               <li className="flex items-start gap-2">
                 <Users className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
                 <span>
-                  <strong>Team Size:</strong> Maximum 5 members per team.
+                  <strong>Team Size:</strong> Maximum 4 members per team.
                 </span>
               </li>
               <li className="flex items-start gap-2">
@@ -1192,7 +1200,7 @@ export default function CompetitionsPage() {
               <li className="flex items-start gap-2">
                 <Users className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
                 <span>
-                  <strong>Team Size:</strong> 3-5 members per team
+                  <strong>Team Size:</strong> 3-4 members per team
                   (Cross-institution teams are allowed)
                 </span>
               </li>
