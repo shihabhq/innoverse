@@ -30,7 +30,7 @@ const HomeHeroSection = () => {
           <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">
             National Science & Technology Carnival 2025, Organized by{" "}
             <span className="text-secondary">WhiteBoard Initiatives,</span>{" "}
-            <span className="text-secondary">in Collaboration with</span>
+          
           </h3>
           <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold">
             in Collaboration with {" "}

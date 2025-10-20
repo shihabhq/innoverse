@@ -326,6 +326,13 @@ const competitions = {
                 Round (Onsite)
               </span>
             </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
+              <span>
+                <strong>Preliminary Round Starts:</strong> November 1, 2025 Time: 7:00
+                PM – 10:00 PM
+              </span>
+            </li>
           </ul>
         </div>
 
@@ -351,17 +358,17 @@ const competitions = {
             <h4 className="font-semibold text-purple-900 mb-3">
               Contest Platform
             </h4>
-            {/* <ul className="space-y-2 text-purple-800 text-sm">
+            <ul className="space-y-2 text-purple-800 text-sm">
               <li>
                 <strong>Toph.co:</strong> Popular Bangladeshi platform
               </li>
-              <li>
+              {/* <li>
                 <strong>Vjudge.net:</strong> International platform
-              </li>
-            </ul> */}
-            <h3 className="font-semibold text-base lg:text-xl text-red-500 text-center">
+              </li> */}
+            </ul>
+            {/* <h3 className="font-semibold text-base lg:text-xl text-red-500 text-center">
               To Be Anounced Soon
-            </h3>
+            </h3> */}
           </div>
 
           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
@@ -430,7 +437,8 @@ const competitions = {
             <li className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
               <span>
-                <strong>Categories:</strong> Junior (6-8), Senior (9-12)
+                <strong>Categories:</strong> Secondary(9-10), Higher Secondary
+                (11-12)
               </span>
             </li>
           </ul>
@@ -443,7 +451,7 @@ const competitions = {
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
-              <span>Teams must consist of 2 members</span>
+              <span>Teams must consist of 3 members</span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
@@ -782,7 +790,7 @@ const competitions = {
             <li className="flex items-start gap-2">
               <Users className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
               <span>
-                <strong>Team Size:</strong> Maximum 5 members per team.
+                <strong>Team Size:</strong> Maximum 4 members per team.
               </span>
             </li>
             <li className="flex items-start gap-2">
@@ -1041,7 +1049,7 @@ const competitions = {
             <li className="flex items-start gap-2">
               <Users className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
               <span>
-                <strong>Team Size:</strong> 3-5 members per team
+                <strong>Team Size:</strong> 3-4 members per team
                 (Cross-institution teams are allowed)
               </span>
             </li>

@@ -102,7 +102,7 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
           hoverColor="hover:bg-secondary-background/80"
           warning={
             (quizSelected &&
-              "Quizard Mania is only for a total of 2 members. The Member 01 will be your teammate in this Competition.") ||
+              "Quizard Mania is only for a total of 3 members. The Member 01 and Member 03 will be your teammates in this Competition.") ||
             ""
           }
         />

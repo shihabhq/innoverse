@@ -11,6 +11,7 @@ const navLinks = [
   { name: "Competitions", href: "/competitions" },
   { name: "Award", href: "/award" },
   { name: "Expo", href: "/expo" },
+  { name: "Startups", href: "/startups" },
 ];
 
 const Navbar = () => {
