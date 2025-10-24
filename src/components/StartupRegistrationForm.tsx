@@ -122,7 +122,7 @@ export function StartupRegistrationForm() {
         ...formData,
         pitchDeckUrl,
       });
-      console.log("Registration success:", res);
+      // console.log("Registration success:", res);
 
       // ✅ Reset form
       setSuccess(true);

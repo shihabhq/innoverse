@@ -6,14 +6,24 @@ import { ArrowLeft, Award, Users, CheckCircle, Trophy } from "lucide-react";
 export default function AwardPage() {
   return (
     <div className="min-h-screen ">
-      {/* <div className="max-w-7xl mx-auto bg-primary text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white text-balance">
-          Shaheed Tanvin Innovation Award
-        </h1>
-        <p className="text-lg sm:text-xl text-gray-300">
-          Flagship Recognition of the Project Showcase Segment
-        </p>
-      </div> */}
+      <section className="py-16 px-4 md:pt-24 pb-10 bg-primary">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white text-balance">
+            Shaheed Tanvin Innovation Award
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto text-pretty">
+            Flagship Recognition of the Project Showcase Segment.
+          </p>
+        </div>
+        <div className="w-full flex items-center justify-center py-6">
+          <Link
+            href="/award/register"
+            className="px-8 py-4 rounded-sm font-semibold text-lg text-center transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5 bg-white text-primary"
+          >
+            Register Project
+          </Link>
+        </div>
+      </section>
 
       {/* About Shaheed Tanvin Section */}
       <div className="py-12 sm:py-16 lg:py-20">
@@ -303,16 +313,16 @@ export default function AwardPage() {
       <div className="bg-primary text-white py-12 sm:py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-2xl sm:text-4xl font-bold mb-4">
-            Be Part of the Innovation
+            Register and compete for the Award!
           </h3>
           <p className="text-lg text-gray-300 mb-8">
             Join the Innovation Expo and showcase your groundbreaking ideas
           </p>
           <Link
-            href="/expo"
+            href="/award/register"
             className="inline-block bg-white transition-all shadow-sm hover:-translate-y-1 text-dark-accent px-6 sm:px-8 py-3 rounded-sm font-semibold"
           >
-            Explore the Expo
+            Register For Award
           </Link>
         </div>
       </div>
