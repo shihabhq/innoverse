@@ -14,7 +14,7 @@ async function uploadToImageKit(file: File) {
     }
 
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data.url;
   } catch (error) {
     console.error("ImageKit upload error:", error);

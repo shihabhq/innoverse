@@ -27,7 +27,7 @@ export async function submitRegistration(data: RegistrationData) {
       throw new Error("Google Apps Script URL is not configured");
     }
 
-    console.log(data);
+    // console.log(data);
 
     // Remove mode: "no-cors" to get proper responses
     const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
@@ -45,7 +45,7 @@ export async function submitRegistration(data: RegistrationData) {
     }
 
     const result = await response.json();
-    console.log("Google Sheets response:", result);
+    // console.log("Google Sheets response:", result);
 
     if (!result.success) {
       throw new Error(result.error || "Failed to submit registration");
