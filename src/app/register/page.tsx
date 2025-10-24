@@ -100,7 +100,7 @@ const RegistrationForm = () => {
   const seniorTeamCompetitions = [
     { name: "Robo Soccer", selected: false, price: 600, icon: Bot },
     { name: "Line Follower Robot", selected: false, price: 600, icon: Zap },
-    { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
+    { name: "Qwizard Mania", selected: false, price: 600, icon: Brain },
   ];
   const undergradSoloCompetitions = [
     { name: "3-Minute Thesis", selected: false, price: 200, icon: FileText },
@@ -117,7 +117,7 @@ const RegistrationForm = () => {
   ]);
 
   const [teamCompetitions, setTeamCompetitions] = useState<Competition[] | []>([
-    { name: "Qwizard Mania", selected: false, price: 400, icon: Brain },
+    { name: "Qwizard Mania", selected: false, price: 600, icon: Brain },
   ]);
 
   useEffect(() => {
@@ -416,6 +416,9 @@ const RegistrationForm = () => {
         registrationData.participant.guardian_contact =
           formData.guardianContact;
       }
+      if (couponCode) {
+        registrationData.coupon = { coupon_code: couponCode };
+      }
 
       const selectedSoloCompetitions = soloCompetitions
         .filter((c) => c.selected)
@@ -548,7 +551,7 @@ const RegistrationForm = () => {
                 <RegistrationLeftDetailText text="You can register for solo events, team events, or both." />
                 <RegistrationLeftDetailText text="For team events, you'll need to provide your team name and member details. You are the Team leader." />
                 {formData.grade !== "13" && (
-                  <RegistrationLeftDetailText text="3. The Member 01 and Member 02 will be your teammates for this round. For Line Follower Robot and Robo Soccer, The team member limit is a total 4." />
+                  <RegistrationLeftDetailText text="For Qwizard Mania, The Member 01 and Member 02 will be your teammates for this round. For Line Follower Robot and Robo Soccer, The team member limit is a total 4." />
                 )}
                 <RegistrationLeftDetailText text="One Member can register with one email once as a leader. If you choose a different team to participate for different team competition, please tell another team member to register as a team leader and add you as a team member." />
                 <RegistrationLeftDetailText text="Pick wisely — this decides where you'll shine!" />

@@ -108,9 +108,10 @@ const Step2EventSelection: React.FC<Step2EventSelectionProps> = ({
         />
         {hasTeamCompetitionSelected && (
           <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              Team Info
-            </h3>
+            <h3 className="text-lg font-semibold text-gray-800 ">Team Info</h3>
+            <div className="text-sm text-gray-500 mb-4">
+             You are the team leader. Please provide the details of your team members.
+            </div>
 
             <div className="mb-6">
               <label className="text-sm font-medium text-gray-700 mb-2 block">

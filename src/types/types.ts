@@ -18,7 +18,7 @@ export type HomeEvent = {
   title: string;
   description: string;
   src: string;
-  href:string;
+  href: string;
 };
 
 export interface Participant {
@@ -62,8 +62,12 @@ export interface RegistrationData {
   payment: Payment;
   competition?: string[];
   team_competition?: TeamCompetition;
+  coupon?: Coupon;
 }
 
+interface Coupon {
+  coupon_code: string;
+}
 
 export interface Participant {
   full_name: string;
@@ -79,7 +83,7 @@ export interface Participant {
 
 export interface Payment {
   amount: string;
-  method: 'bkash' |'nagad';
+  method: "bkash" | "nagad";
   phone: string;
   trx_id: string;
 }

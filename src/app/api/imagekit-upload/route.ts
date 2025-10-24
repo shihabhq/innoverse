@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
       folder: "/pitch-decks",
     });
 
-    console.log(result)
+    // console.log(result)
 
     return NextResponse.json(result);
   } catch (error) {
