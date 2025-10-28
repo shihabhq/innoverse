@@ -12,7 +12,10 @@ const HomeHero = () => {
       </div>
       <div className="w-full z-20 flex items-center justify-start">
         <div className=" px-10 sm:w-[80%] mx-auto">
-          <h1>City Bank Presents</h1>
+          <div className="flex items-end gap-2 justify-start">
+            <img src="/home/city.png" alt="" />
+            <h1>Presents</h1>
+          </div>
           <h2 className="font-extrabold hidden md:block text-7xl uppercase">
             Innoverse <br />
             Bangladesh 2025

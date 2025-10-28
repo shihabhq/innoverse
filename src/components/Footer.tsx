@@ -137,6 +137,12 @@ const Footer = () => {
 
       <div className="bg-dark-accent font-bold text-lg sm:text-xl lg:text-2xl text-gray-300 text-center py-4 sm:py-5 lg:py-6">
         © 2025 wbinitiatives. All rights reserved.
+        <p className="text-sm font-semibold max-w-2xl px-4 mx-auto">
+          
+          WhiteBoard Initiatives reserves the right to amend, modify, or
+          cancel any part of the program, schedule, or speaker lineup if
+          circumstances require.
+        </p>
       </div>
     </>
   );

@@ -5,7 +5,10 @@ const HomeHeroSection = () => {
     <section className="w-full relative min-h-screen overflow-hidden">
       <div className="max-w-[1400px] @container mx-auto py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-0">
         {/* Main Title */}
-        <h1 className="text-xl sm:text-3xl">City Bank Presents,</h1>
+        <div className="flex items-end justify-start gap-2">
+          <img src="/home/city.png" className="w-28" alt="" />
+          <h1 className="text-xl sm:text-2xl">Presents,</h1>
+        </div>
         <h2 className="uppercase z-20 font-bold leading-none text-left text-[35px] xs:text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] xl:text-[155px] 2xs:whitespace-nowrap">
           Innoverse Bangladesh
         </h2>
@@ -16,7 +19,7 @@ const HomeHeroSection = () => {
         </h2>
 
         {/* VR Man Image - Positioned differently on mobile/tablet */}
-        <div className="hidden sm:block absolute -bottom-4 left-1/2 -translate-x-1/2 w-[90%] md:w-[60%] xl:w-[720px] 2xl:w-[750px]">
+        <div className="hidden sm:block absolute -bottom-8 left-1/2 -translate-x-1/2 w-[90%] md:w-[60%] xl:w-[720px] 2xl:w-[750px]">
           <img src="/home/vr-man3.webp" className="w-full" alt="VR Man" />
         </div>
 
@@ -30,10 +33,9 @@ const HomeHeroSection = () => {
           <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">
             National Science & Technology Carnival 2025, Organized by{" "}
             <span className="text-secondary">WhiteBoard Initiatives,</span>{" "}
-          
           </h3>
           <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold">
-            in Collaboration with {" "}
+            in Collaboration with{" "}
             <span className="font-extrabold">ICT Division of Bangladesh.</span>
           </h3>
         </div>
@@ -61,7 +63,7 @@ const HomeHeroSection = () => {
               Starts At
             </h2>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold">
-              7 NOV, 2025
+              14 NOV, 2025
             </h2>
           </div>
           <div className="p-3 hidden sm:block sm:p-4 bg-primary text-white mt-4 rounded-sm w-fit z-10 relative">
