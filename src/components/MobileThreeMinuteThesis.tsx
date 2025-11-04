@@ -1,5 +1,13 @@
-import { AlertCircle, CheckCircle, Clock, Presentation } from 'lucide-react';
-import React from 'react'
+import {
+  AlertCircle,
+  CheckCircle,
+  Clock,
+  Presentation,
+  Calendar,
+  Award,
+  FileCheck,
+} from "lucide-react";
+import React from "react";
 
 const MobileThreeMinuteThesis = () => {
   return (
@@ -27,6 +35,63 @@ const MobileThreeMinuteThesis = () => {
             minutes. The aim is to communicate complex ideas clearly and
             effectively to a non-specialist audience.
           </p>
+        </div>
+
+        {/* Registration & Prize Info */}
+        <div className="space-y-4">
+          <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg p-4">
+            <div className="flex items-start gap-3">
+              <Calendar className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 className="font-semibold text-purple-900 mb-2">
+                  Important Dates
+                </h4>
+                <div className="space-y-1">
+                  <p className="text-purple-800 text-sm">
+                    <strong>Registration Deadline:</strong>
+                  </p>
+                  <p className="text-purple-800 font-bold">November 6, 2025</p>
+                  <p className="text-purple-800 text-sm mt-2">
+                    <strong>Preliminary Round:</strong>
+                  </p>
+                  <p className="text-purple-800 font-bold">November 7, 2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-200 rounded-lg p-4">
+            <div className="flex items-start gap-3">
+              <Award className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 className="font-semibold text-amber-900 mb-2">
+                  Prize Pool
+                </h4>
+                <p className="text-amber-800 font-bold text-lg mb-2">
+                  Total: 15,000 BDT
+                </p>
+                <div className="space-y-1 text-sm text-amber-800">
+                  <p>🥇 1st Prize: 7,000 BDT</p>
+                  <p>🥈 2nd Prize: 5,000 BDT</p>
+                  <p>🥉 3rd Prize: 3,000 BDT</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="flex items-start gap-3">
+              <FileCheck className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 className="font-semibold text-blue-900 mb-1">
+                  Participation Certificate
+                </h4>
+                <p className="text-blue-800 text-sm">
+                  All participants will receive certificates
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="bg-[#e5ecd9] rounded-lg p-5">
@@ -117,6 +182,6 @@ const MobileThreeMinuteThesis = () => {
       </div>
     </section>
   );
-}
+};
 
-export default MobileThreeMinuteThesis
+export default MobileThreeMinuteThesis;

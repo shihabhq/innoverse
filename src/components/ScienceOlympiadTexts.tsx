@@ -1,5 +1,5 @@
-import { CheckCircle } from 'lucide-react';
-import React from 'react'
+import { CheckCircle, Calendar, Award, Medal } from "lucide-react";
+import React from "react";
 
 const ScienceOlympiadTexts = () => {
   return (
@@ -12,6 +12,62 @@ const ScienceOlympiadTexts = () => {
           think analytically beyond classroom knowledge. It emphasizes
           problem-solving, reasoning, and conceptual clarity.
         </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4 my-4">
+        <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg p-4">
+          <div className="flex items-start gap-3">
+            <Calendar className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 className="font-semibold text-purple-900 mb-1">
+                Registration Deadline
+              </h4>
+              <p className="text-purple-800 text-lg font-bold">
+                November 8, 2025
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-200 rounded-lg p-4">
+          <div className="flex items-start gap-3">
+            <Award className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 className="font-semibold text-amber-900 mb-2">Prize Pool</h4>
+              <p className="text-amber-800 font-bold text-lg mb-1">
+                Total: 30,000 BDT
+              </p>
+              <p className="text-amber-700 text-sm">Across 3 categories</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-lg p-5 mb-4">
+        <div className="flex items-start gap-3 mb-3">
+          <Medal className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+          <h4 className="font-semibold text-green-900">Prizes Per Category</h4>
+        </div>
+        <div className="space-y-2 text-green-800 text-sm">
+          <p>
+            🥇 <strong>1st Prize:</strong> 5,000 BDT
+          </p>
+          <p>
+            🥈 <strong>2nd Prize:</strong> 3,000 BDT
+          </p>
+          <p>
+            🥉 <strong>3rd Prize:</strong> 1,000 BDT
+          </p>
+          <p>
+            🏅 <strong>4th Prize:</strong> 500 BDT
+          </p>
+          <p>
+            🏅 <strong>5th Prize:</strong> 500 BDT
+          </p>
+          <p className="mt-3 pt-3 border-t border-green-200">
+            <strong>6th - 30th Position:</strong> Medal & Certificate
+          </p>
+        </div>
       </div>
 
       <div className="bg-[#e5ecd9] rounded-lg p-5">
@@ -80,6 +136,6 @@ const ScienceOlympiadTexts = () => {
       </div>
     </>
   );
-}
+};
 
-export default ScienceOlympiadTexts
+export default ScienceOlympiadTexts;

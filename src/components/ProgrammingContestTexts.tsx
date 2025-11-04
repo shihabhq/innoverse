@@ -1,5 +1,5 @@
-import { CheckCircle } from 'lucide-react';
-import React from 'react'
+import { CheckCircle, Calendar, Award, Medal } from "lucide-react";
+import React from "react";
 
 const ProgrammingContestTexts = () => {
   return (
@@ -14,6 +14,60 @@ const ProgrammingContestTexts = () => {
           next generation of coders, preparing them for national and
           international platforms such as BdOI and IOI.
         </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4 my-4">
+        <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg p-4">
+          <div className="flex items-start gap-3">
+            <Calendar className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 className="font-semibold text-purple-900 mb-2">
+                Important Dates
+              </h4>
+              <div className="space-y-1">
+                <p className="text-purple-800 text-sm">
+                  <strong>Registration Deadline:</strong>
+                </p>
+                <p className="text-purple-800 font-bold">November 6, 2025</p>
+                <p className="text-purple-800 text-sm mt-2">
+                  <strong>Preliminary Round:</strong>
+                </p>
+                <p className="text-purple-800 font-bold">November 10, 2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-br from-amber-50 to-amber-100 border border-amber-200 rounded-lg p-4">
+          <div className="flex items-start gap-3">
+            <Award className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 className="font-semibold text-amber-900 mb-2">Prize Pool</h4>
+              <p className="text-amber-800 font-bold text-lg mb-2">
+                Total: 15,000 BDT
+              </p>
+              <div className="space-y-1 text-sm text-amber-800">
+                <p>🥇 1st Prize: 7,000 BDT</p>
+                <p>🥈 2nd Prize: 5,000 BDT</p>
+                <p>🥉 3rd Prize: 3,000 BDT</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-lg p-4 mb-4">
+        <div className="flex items-start gap-3">
+          <Medal className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <h4 className="font-semibold text-green-900 mb-2">
+              Additional Recognition
+            </h4>
+            <p className="text-green-800 text-sm">
+              <strong>4th - 10th Position:</strong> Certificate & Medal
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="bg-[#e5ecd9] rounded-lg p-5">
@@ -47,7 +101,7 @@ const ProgrammingContestTexts = () => {
           <li className="flex items-start gap-2">
             <CheckCircle className="w-4 h-4 text-[#60a657] mt-0.5 flex-shrink-0" />
             <span>
-              <strong>Preliminary Round Starts:</strong> November 1, 2025 Time:
+              <strong>Preliminary Round Starts:</strong> November 10, 2025 Time:
               7:00 PM – 10:00 PM
             </span>
           </li>
@@ -80,13 +134,7 @@ const ProgrammingContestTexts = () => {
             <li>
               <strong>Toph.co:</strong> Popular Bangladeshi platform
             </li>
-            {/* <li>
-                <strong>Vjudge.net:</strong> International platform
-              </li> */}
           </ul>
-          {/* <h3 className="font-semibold text-base lg:text-xl text-red-500 text-center">
-              To Be Anounced Soon
-            </h3> */}
         </div>
 
         <div className="bg-green-50 border border-green-200 rounded-lg p-4">
@@ -108,23 +156,8 @@ const ProgrammingContestTexts = () => {
           </ul>
         </div>
       </div>
-
-      {/* <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <div className="flex items-start gap-3">
-            <Users className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-blue-900 mb-2">
-                Problem Setting & Technical Support
-              </h4>
-              <p className="text-blue-800 text-sm">
-                <strong>Problem Setters:</strong> IOI Medalists, BdOI
-                Nationalists, BdOI Campers
-              </p>
-            </div>
-          </div>
-        </div> */}
     </>
   );
-}
+};
 
-export default ProgrammingContestTexts
+export default ProgrammingContestTexts;

@@ -26,8 +26,6 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { showCustomError } from "@/components/ShowCustomError";
 
-
-
 const steps = [
   { label: "Personal Info", number: 1 },
   { label: "Events", number: 2 },
