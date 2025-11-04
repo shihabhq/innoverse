@@ -60,7 +60,7 @@ export default function Home() {
                   A Date In Your Diary
                 </p>
                 <h2 className="text-5xl text-center font-bold mb-auto leading-tight">
-                  7 - 8 November, <br /> 2025
+                  14 - 15 November, <br /> 2025
                 </h2>
                 <div className="mt-8 flex justify-end">
                   <Calendar className="w-9 h-9" strokeWidth={2} />

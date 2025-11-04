@@ -365,147 +365,166 @@ const RegistrationForm = () => {
     (comp) => comp.selected
   );
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    if (currentStep === 3) {
-      setStep3Error("");
+  if (currentStep === 3) {
+    setStep3Error("");
 
-      if (!paymentPhone.trim() || !transactionId.trim()) {
-        setStep3Error(
-          "Please enter your payment phone number and transaction ID."
-        );
+    if (!paymentPhone.trim() || !transactionId.trim()) {
+      setStep3Error(
+        "Please enter your payment phone number and transaction ID."
+      );
+      return;
+    }
+
+    const competitionCodeMap: { [key: string]: string } = {
+      "Science Olympiad": "sc_olym",
+      "Competitive Programming Contest": "programming",
+      "Math Maestros": "m_maestros",
+      "Research Article": "r_article",
+      "3-Minute Thesis": "3m-res",
+    };
+
+    const teamCompetitionCodeMap: { [key: string]: string } = {
+      "Robo Soccer": "robo_soccer",
+      "Line Follower Robot": "lfr",
+      "Qwizard Mania": "q_mania",
+      "Project Showcasing": "pr_show",
+    };
+
+    const registrationData: RegistrationData = {
+      participant: {
+        full_name: formData.fullName,
+        gender: formData.gender === "male" ? "M" : "F",
+        email: formData.email,
+        grade: formData.grade,
+        phone: formData.contactNumber,
+        institution: formData.instituteName,
+        address: formData.address,
+        t_shirt_size: formData.tshirtSize.toUpperCase(),
+      },
+      payment: {
+        amount: totalAmount.toFixed(2),
+        method: paymentMethod,
+        phone: paymentPhone,
+        trx_id: transactionId,
+      },
+    };
+
+    if (formData.guardianContact.trim()) {
+      registrationData.participant.guardian_contact = formData.guardianContact;
+    }
+    if (couponCode) {
+      registrationData.coupon = { coupon_code: couponCode };
+    }
+
+    const selectedSoloCompetitions = soloCompetitions
+      .filter((c) => c.selected)
+      .map((c) => competitionCodeMap[c.name]);
+
+    registrationData.competition = [...(selectedSoloCompetitions || [])];
+
+    const selectedTeamCompetitions = teamCompetitions.filter((c) => c.selected);
+    if (selectedTeamCompetitions.length > 0) {
+      registrationData.team_competition = {
+        team: {
+          team_name: teamName,
+          participant: teamMembers
+            .filter(
+              (member) =>
+                member.fullName.trim() &&
+                member.grade.trim() &&
+                member.tshirtSize.trim() &&
+                member.phoneNumber.trim() &&
+                member.instituteName.trim() &&
+                member.email.trim()
+            )
+            .map((member) => ({
+              full_name: member.fullName,
+              gender: member.gender === "male" ? "M" : "F",
+              phone: member.phoneNumber,
+              grade: member.grade,
+              institution: member.instituteName,
+              email: member.email,
+              t_shirt_size: member.tshirtSize.toUpperCase(),
+            })),
+        },
+        competition: selectedTeamCompetitions.map(
+          (c) => teamCompetitionCodeMap[c.name]
+        ),
+      };
+    }
+
+    try {
+      const response = await fetch(
+        "https://innoversebd.bdix.cloud/api/register/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(registrationData),
+        }
+      );
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        console.error("Validation Errors:", result);
+        const firstErrorKey = Object.keys(result.errors || {})[0];
+        const firstErrorMessage =
+          result.errors?.[firstErrorKey]?.[0] || "Unknown validation error.";
+
+        showCustomError(`${firstErrorKey}: ${firstErrorMessage}`);
         return;
       }
 
-      const competitionCodeMap: { [key: string]: string } = {
-        "Science Olympiad": "sc_olym",
-        "Competitive Programming Contest": "programming",
-        "Math Maestros": "m_maestros",
-        "Research Article": "r_article",
-        "3-Minute Thesis": "3m-res",
-      };
+      toast.success(result.message || "Registration successful!");
 
-      const teamCompetitionCodeMap: { [key: string]: string } = {
-        "Robo Soccer": "robo_soccer",
-        "Line Follower Robot": "lfr",
-        "Qwizard Mania": "q_mania",
-        "Project Showcasing": "pr_show",
-      };
+      // Store registration data
+      localStorage.setItem("registration_access", "true");
+      localStorage.setItem("registration_message", result.message);
 
-      const registrationData: RegistrationData = {
-        participant: {
-          full_name: formData.fullName,
-          gender: formData.gender === "male" ? "M" : "F",
-          email: formData.email,
-          grade: formData.grade,
-          phone: formData.contactNumber,
-          institution: formData.instituteName,
-          address: formData.address,
-          t_shirt_size: formData.tshirtSize.toUpperCase(),
-        },
-        payment: {
-          amount: totalAmount.toFixed(2),
-          method: paymentMethod,
-          phone: paymentPhone,
-          trx_id: transactionId,
-        },
-      };
+      // Flag to prevent double redirect
+      let hasRedirected = false;
 
-      if (formData.guardianContact.trim()) {
-        registrationData.participant.guardian_contact =
-          formData.guardianContact;
-      }
-      if (couponCode) {
-        registrationData.coupon = { coupon_code: couponCode };
-      }
-
-      const selectedSoloCompetitions = soloCompetitions
-        .filter((c) => c.selected)
-        .map((c) => competitionCodeMap[c.name]);
-
-      registrationData.competition = [...(selectedSoloCompetitions || [])];
-
-      const selectedTeamCompetitions = teamCompetitions.filter(
-        (c) => c.selected
-      );
-      if (selectedTeamCompetitions.length > 0) {
-        registrationData.team_competition = {
-          team: {
-            team_name: teamName,
-            participant: teamMembers
-              .filter(
-                (member) =>
-                  member.fullName.trim() &&
-                  member.grade.trim() &&
-                  member.tshirtSize.trim() &&
-                  member.phoneNumber.trim() &&
-                  member.instituteName.trim() &&
-                  member.email.trim()
-              )
-              .map((member) => ({
-                full_name: member.fullName,
-                gender: member.gender === "male" ? "M" : "F",
-                phone: member.phoneNumber,
-                grade: member.grade,
-                institution: member.instituteName,
-                email: member.email,
-                t_shirt_size: member.tshirtSize.toUpperCase(),
-              })),
-          },
-          competition: selectedTeamCompetitions.map(
-            (c) => teamCompetitionCodeMap[c.name]
-          ),
-        };
-      }
-
-      // console.log(
-      //   "Registration Data:",
-      //   JSON.stringify(registrationData, null, 2)
-      // );
-
-      try {
-        const response = await fetch(
-          "https://innoversebd.bdix.cloud/api/register/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(registrationData),
-          }
-        );
-
-        const result = await response.json();
-
-        if (!response.ok) {
-          // Handle backend validation errors
-          console.error("Validation Errors:", result);
-          const firstErrorKey = Object.keys(result.errors || {})[0];
-          const firstErrorMessage =
-            result.errors?.[firstErrorKey]?.[0] || "Unknown validation error.";
-          // console.log(`${firstErrorKey}: ${firstErrorMessage}`);
-
-          showCustomError(`${firstErrorKey}: ${firstErrorMessage}`);
-          return;
-        }
-
-        toast.success(result.message || "Registration successful!");
-
-        // store a short-lived flag
-        localStorage.setItem("registration_access", "true");
-        localStorage.setItem("registration_message", result.message);
-
-        // redirect after short delay
-        setTimeout(() => {
+      const performRedirect = () => {
+        if (!hasRedirected) {
+          hasRedirected = true;
           router.push("/success");
-        }, 1500);
-      } catch (error) {
-        console.error("Registration Failed:", error);
-        showCustomError("Registration failed. Please try again later.");
+        }
+      };
+
+      // Safety timeout - ALWAYS redirects after 3 seconds
+      const safetyTimeout = setTimeout(performRedirect, 3000);
+
+      // Push to dataLayer for GTM
+      if (typeof window !== "undefined" && window.dataLayer) {
+        window.dataLayer.push({
+          event: "registration_complete",
+          eventCallback: function () {
+            // Clear safety timeout and redirect immediately when GTM fires
+            clearTimeout(safetyTimeout);
+            performRedirect();
+          },
+          eventTimeout: 2000, // GTM's internal timeout
+          registration_data: {
+            amount: totalAmount.toFixed(2),
+            method: paymentMethod,
+            competitions: registrationData.competition?.length || 0,
+            team_competitions:
+              registrationData.team_competition?.competition?.length || 0,
+          },
+        });
       }
+      // If no dataLayer exists, safety timeout will handle redirect
+    } catch (error) {
+      console.error("Registration Failed:", error);
+      showCustomError("Registration failed. Please try again later.");
     }
-  };
+  }
+};
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row font-roboto">
