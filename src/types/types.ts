@@ -135,4 +135,41 @@ export interface ErrorState {
   message: string;
 }
 
-// Request Types (for sending to backend)
+// GTM data layer types
+export type GTMEventCallback = () => void;
+
+export type BaseGTMEvent = {
+  event: string;
+  eventCallback?: GTMEventCallback;
+  eventTimeout?: number;
+  [key: string]: unknown;
+};
+
+export type RegistrationCompleteEvent = BaseGTMEvent & {
+  event: "registration_complete";
+  registration_data: {
+    amount: string;
+    method: string;
+    competitions: number;
+    team_competitions: number;
+  };
+};
+
+export type PageViewEvent = BaseGTMEvent & {
+  event: "page_view";
+  page_path: string;
+  page_title?: string;
+  page_location?: string;
+  page_type?: string;
+};
+
+export type GTMEvent =
+  | RegistrationCompleteEvent
+  | PageViewEvent
+  | (BaseGTMEvent & Record<string, unknown>);
+
+declare global {
+  interface Window {
+    dataLayer: GTMEvent[];
+  }
+}

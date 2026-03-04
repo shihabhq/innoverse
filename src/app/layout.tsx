@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "sonner";
 import Script from "next/script";
+import { Suspense } from "react";
+import GTMRouteTracker from "@/components/GTMRouteTracker";
 
 export const metadata: Metadata = {
   title: "Innoverse Bangladesh",
@@ -72,7 +74,12 @@ export default function RootLayout({
           ></iframe>
         </noscript>
         <Navbar />
-        <main className="min-h-[60vh] pt-20">{children}</main>
+        <main className="min-h-[60vh] pt-20">
+          <Suspense fallback={null}>
+            <GTMRouteTracker />
+          </Suspense>
+          {children}
+        </main>
         <Toaster position="top-center" />
         <Footer />
       </body>
